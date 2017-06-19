@@ -1,9 +1,16 @@
+Imports FieldCalculationParser
+
 Public Class DivideExprNode
     Inherits BinaryNumExprNode
+    Implements IDisplayToTreeNode
     Private Const _OpName As String = "/"
     Private Const _OpString As String = "Divide"
     Public Sub New(left As ParseTreeNode, right As ParseTreeNode)
         MyBase.New(left, right)
+
+    End Sub
+    Public Sub New()
+        MyBase.New(Nothing, Nothing)
 
     End Sub
 
@@ -53,6 +60,30 @@ Public Class DivideExprNode
     Public Overrides ReadOnly Property OpString As String
         Get
             Return _OpString
+        End Get
+    End Property
+
+    Public ReadOnly Property DisplayType As DisplayTypes Implements IDisplayToTreeNode.DisplayType
+        Get
+            Return DisplayTypes.Operators
+        End Get
+    End Property
+
+    Public ReadOnly Property DisplayName As String Implements IDisplayToTreeNode.DisplayName
+        Get
+            Return _OpName
+        End Get
+    End Property
+
+    Public ReadOnly Property FunctionSyntax As String Implements IDisplayToTreeNode.FunctionSyntax
+        Get
+            Return _OpName
+        End Get
+    End Property
+
+    Public ReadOnly Property HelpFile As String Implements IDisplayToTreeNode.HelpFile
+        Get
+            Return "Numerics.xml"
         End Get
     End Property
 End Class

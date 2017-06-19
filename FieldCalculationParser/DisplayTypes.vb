@@ -1,4 +1,5 @@
 Public Enum DisplayTypes
+    Operators
     Booleans
     Numerics
     Strings

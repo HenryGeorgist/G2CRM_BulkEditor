@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace CalculatorExample.Controls
     /// <summary>
     /// Interaction logic for Calculator.xaml
     /// </summary>
-    public partial class Calculator : Window
+    public partial class Calculator : Window, System.ComponentModel.INotifyPropertyChanged
     {
         private List<string> _ParseErrors;
         //private int _CaratIndex = 0;
@@ -28,6 +29,14 @@ namespace CalculatorExample.Controls
         private string _filePath;
         private string _tableName;
         private string _columnName;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public string ColumnName
+        {
+            get { return _columnName; }
+            set { _columnName = value; NotifyPropertyChanged(); }//notify property changed.
+        }
         public Calculator()
         {
 
@@ -78,9 +87,6 @@ namespace CalculatorExample.Controls
                 AvailableFields.Items.Add(tvi);
             }
 
-
-            //Make the divide button have a backslash... (ours are with images so it looks prettier...)
-            Divide.Content = "/";
         }
         public Calculator(string filePath, string tablename, string columnName)
         {
@@ -88,7 +94,7 @@ namespace CalculatorExample.Controls
             InitializeComponent();
             _filePath = filePath;
             _tableName = tablename;
-            _columnName = columnName;
+            ColumnName = columnName;
             //handle events from the various specialized components
             TestWindow.ErrorsFound += ErrorsFound;
             TestWindow.ParseSuccess += DisplayResult;
@@ -141,9 +147,6 @@ namespace CalculatorExample.Controls
                 AvailableFields.Items.Add(tvi);
             }
 
-
-            //Make the divide button have a backslash... (ours are with images so it looks prettier...)
-            Divide.Content = "/";
         }
         private void TextToInsert(string text)
         {
@@ -232,6 +235,7 @@ namespace CalculatorExample.Controls
                     {
                         row = reader.Row((int)i, uniqueheaders);
                         tree.Update(ref row);
+                        
                     }
 
                     output.Add(tree.Evaluate().GetResult);
@@ -288,36 +292,6 @@ namespace CalculatorExample.Controls
             }
 
         }
-
-        private void Plus_Click(object sender, RoutedEventArgs e)
-        {
-            TextToInsert("+");
-        }
-
-        private void Minus_Click(object sender, RoutedEventArgs e)
-        {
-            TextToInsert("-");
-        }
-
-        private void Divide_Click(object sender, RoutedEventArgs e)
-        {
-            TextToInsert("/");
-        }
-
-        private void Multiply_Click(object sender, RoutedEventArgs e)
-        {
-            TextToInsert("*");
-        }
-
-        private void Exponent_Click(object sender, RoutedEventArgs e)
-        {
-            TextToInsert("^");
-        }
-
-        private void Equals_Click(object sender, RoutedEventArgs e)
-        {
-            TextToInsert("=");
-        }
         private List<string> GetColumnsFromTree(FieldCalculationParser.ParseTreeNode tree)
         {
             List<string> input = tree.GetHeaderNames();
@@ -340,6 +314,10 @@ namespace CalculatorExample.Controls
                 data.Add(inputdata[_headers.IndexOf(s)]);
             }
             return data.ToArray();
+        }
+        protected void NotifyPropertyChanged([System.Runtime.CompilerServices.CallerMemberName]string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -8,11 +8,9 @@ C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Calcul
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\bin\Debug\CalculatorExample.exe.config
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\bin\Debug\CalculatorExample.exe
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\bin\Debug\CalculatorExample.pdb
-C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\bin\Debug\ExpressionBuilder.dll
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\bin\Debug\FieldCalculationParser.dll
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\bin\Debug\QuickHelp.dll
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\bin\Debug\Statistics.dll
-C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\bin\Debug\ExpressionBuilder.pdb
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\bin\Debug\FieldCalculationParser.pdb
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\bin\Debug\FieldCalculationParser.xml
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\bin\Debug\QuickHelp.pdb

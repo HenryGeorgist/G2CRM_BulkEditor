@@ -1,9 +1,13 @@
 Public Class EQExprNode
     Inherits BinaryBoolExprNode
+    Implements IDisplayToTreeNode
     Private Const _OpName As String = "="
     Private Const _OpString As String = "Equals"
     Public Sub New(left As ParseTreeNode, right As ParseTreeNode)
         MyBase.New(left, right)
+    End Sub
+    Public Sub New()
+        MyBase.New(Nothing, Nothing)
     End Sub
     Public Overrides Function ExpressionToString() As String
         Return "(" & leftNode.ExpressionToString & Me.OpName & rightNode.ExpressionToString & ")"
@@ -91,6 +95,29 @@ Public Class EQExprNode
     Public Overrides ReadOnly Property OpString As String
         Get
             Return _OpString
+        End Get
+    End Property
+    Public ReadOnly Property DisplayType As DisplayTypes Implements IDisplayToTreeNode.DisplayType
+        Get
+            Return DisplayTypes.Operators
+        End Get
+    End Property
+
+    Public ReadOnly Property DisplayName As String Implements IDisplayToTreeNode.DisplayName
+        Get
+            Return _OpName
+        End Get
+    End Property
+
+    Public ReadOnly Property FunctionSyntax As String Implements IDisplayToTreeNode.FunctionSyntax
+        Get
+            Return _OpName
+        End Get
+    End Property
+
+    Public ReadOnly Property HelpFile As String Implements IDisplayToTreeNode.HelpFile
+        Get
+            Return "Booleans.xml"
         End Get
     End Property
 End Class
