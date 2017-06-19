@@ -236,7 +236,12 @@ Public Class Parser
     End Function
     Private Function ParenteticalStatement(term As ParseTreeNode) As ParseTreeNode
         Do Until IsTok(TokenEnum.RPAREN)
+            Dim pos As Integer = tok.pos
             term = ParseATreeNode(term)
+            If tok.pos = pos Then '' if the position remains unchanged, it is likely something has gone wrong.
+                Scan() ''force advance of position. This will result in end of file, or a call of end of file after end of file which will be an error. - worst case an extra error message.
+                If (IsTok(TokenEnum.ERR)) Then Exit Do
+            End If
             If IsTok(TokenEnum.COMMA) Then
                 term.AddParseError("Found a comma in a parenthetical statment, this shouldnt happen")
                 Return New ErrorNode(TypeEnum.UnDeclared, "Found a comma in a parenthetical statment, this shouldnt happen", term.ExpressionToString)
