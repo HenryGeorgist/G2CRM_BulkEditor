@@ -61,7 +61,9 @@ namespace Database.Writer
             string cmdstring = "UPDATE [" + _tableName + "] SET [" + ColumnName + "]='";
             using (System.Data.SQLite.SQLiteTransaction trans = _connection.BeginTransaction())
             {
-                using(System.Data.SQLite.SQLiteCommand cmd = _connection.CreateCommand())
+                try
+                {
+                using (System.Data.SQLite.SQLiteCommand cmd = _connection.CreateCommand())
                 {
                     cmd.Transaction = trans;
                     for(int i = 0; i < data.Count(); i++)
@@ -71,6 +73,11 @@ namespace Database.Writer
                     }
                 }
                 trans.Commit();
+                }catch(Exception ex)
+                {
+                    trans.Rollback();
+                }
+
             }
             if (!wasOpen) { Close(); }
         }

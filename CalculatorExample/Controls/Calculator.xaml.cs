@@ -29,13 +29,18 @@ namespace CalculatorExample.Controls
         private string _filePath;
         private string _tableName;
         private string _columnName;
-
+        private string _columnType;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string ColumnName
         {
             get { return _columnName; }
             set { _columnName = value; NotifyPropertyChanged(); }//notify property changed.
+        }
+        public string ColumnType
+        {
+            get { return _columnType; }
+            set { _columnType = value; NotifyPropertyChanged(); }//notify property changed.
         }
         public Calculator()
         {
@@ -124,15 +129,19 @@ namespace CalculatorExample.Controls
                 case "int32":
                 case "int64":
                     TestWindow.SetOutputType = FieldCalculationParser.TypeEnum.Num;//could set to decimal and int if you want more specification...
+                    ColumnType = "Numeric";
                     break;
                 case "bool":
                     TestWindow.SetOutputType = FieldCalculationParser.TypeEnum.Bool;
+                    ColumnType = "True or False";
                     break;
                 case "string":
                     TestWindow.SetOutputType = FieldCalculationParser.TypeEnum.Str;
+                    ColumnType = "Text";
                     break;
                 default:
                     TestWindow.SetOutputType = FieldCalculationParser.TypeEnum.UnDeclared;
+                    ColumnType = "No output restrictions";
                     break;
             }
 
@@ -216,6 +225,8 @@ namespace CalculatorExample.Controls
         {
             //this is where you would get the parse tree from the expressionwindow, and then execute the tree for each row.
             FieldCalculationParser.ParseTreeNode tree = TestWindow.GetTree;
+            FieldCalculationParser.ParseTreeNode.Initialize();//clear all errors.
+
             if (tree != null)
             {
 
@@ -225,42 +236,43 @@ namespace CalculatorExample.Controls
                 string[] uniqueheaders = getUniqueHeaders(usedheaders);
                 tree.SetColNums(uniqueheaders.ToList());
                 Int64 count = reader.RowCount();
-                
+
                 List<object> output = new List<object>();
                 reader.Open();
-                for(Int64 i = 0; i < count; i++)
+                for (Int64 i = 0; i < count; i++)
                 {
                     FieldCalculationParser.ParseTreeNode.RowOrCellNum = (int)i;//whatever.
                     if (uniqueheaders.Count() > 0)
                     {
                         row = reader.Row((int)i, uniqueheaders);
                         tree.Update(ref row);
-                        
                     }
-
                     output.Add(tree.Evaluate().GetResult);
                 }
                 reader.Close();
-                Database.Writer.SqLiteWriter writer = new Database.Writer.SqLiteWriter(_filePath, _tableName);
-                StringBuilder s = new StringBuilder();
-                s.AppendLine("Row Num: Output");
-                int idx = 0;
-                foreach(object o in output)
+                if (tree.GetComputeErrors.Count > 1)
                 {
-                    s.AppendLine(idx + ", " + o.ToString());
-                    idx += 1;
+                    //do not write to file.
+                    StringBuilder s = new StringBuilder();
+                    foreach (string o in tree.GetComputeErrors)
+                    {
+                        s.AppendLine(o);
+                    }
+                    ErrorWindow err = new ErrorWindow(s.ToString());
+                    err.Title = "Output";
+                    err.ShowDialog();
                 }
-                ErrorWindow err = new ErrorWindow(s.ToString());
-                err.Title = "Output";
-                err.ShowDialog();
-                writer.UpdateColumn(_columnName, output.ToArray());
-                
+                else
+                {
+                    Database.Writer.SqLiteWriter writer = new Database.Writer.SqLiteWriter(_filePath, _tableName);
+                    writer.UpdateColumn(_columnName, output.ToArray());
+                }
             }
         }
         private string[] getUniqueHeaders(List<string> usedHeaders)
         {
             List<string> uniques = new List<string>();
-            foreach(string s in usedHeaders)
+            foreach (string s in usedHeaders)
             {
                 if (!uniques.Contains(s))
                 {

@@ -76,7 +76,7 @@ namespace Database.Reader
             System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection("Data Source=" + filepath + ";Version=3;");
             List<string> result = new List<string>();
             conn.Open();
-            
+
             using (System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand("SELECT name FROM sqlite_master WHERE type='table'", conn))
             {
                 using (System.Data.SQLite.SQLiteDataReader reader = cmd.ExecuteReader())
@@ -104,7 +104,7 @@ namespace Database.Reader
                     {
                         while (reader.Read())
                         {
-                            foreach(string s in _columnNames)
+                            foreach (string s in _columnNames)
                             {
                                 row.Add(reader[s]);
                             }
@@ -118,7 +118,7 @@ namespace Database.Reader
         {
             List<object> row = new List<object>();
             string cmdstring = "SELECT [" + columnNames[0] + "]";
-            for(int i = 1; i < columnNames.Count(); i++)
+            for (int i = 1; i < columnNames.Count(); i++)
             {
                 cmdstring += ",[" + columnNames[i] + "]";
             }
@@ -144,16 +144,22 @@ namespace Database.Reader
         public string[] ColumnNames()
         {
             bool wasopen = _isOpen;
-            if (!_isOpen) { Open();}
+            if (!_isOpen) { Open(); }
             List<string> names = new List<string>();
             using (System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand("PRAGMA table_info([" + _tableName + "])", _connection))
             {
                 System.Data.SQLite.SQLiteDataAdapter adap = new System.Data.SQLite.SQLiteDataAdapter(cmd);
                 System.Data.DataTable tab = new System.Data.DataTable();
                 adap.Fill(tab);
-                foreach(System.Data.DataRow r in tab.Rows)
+                string typestring = "";
+                foreach (System.Data.DataRow r in tab.Rows)
                 {
-                    names.Add((string)r[1]);
+                    typestring = (string)r[2];
+                    if (!typestring.Contains("BLOB"))
+                    {
+                        names.Add((string)r[1]);
+                    }
+
                 }
             }
             if (!wasopen) { Close(); }
@@ -175,28 +181,34 @@ namespace Database.Reader
                     typestring = (string)r[2];
                     if (typestring.Contains("INT"))
                     {
-                        switch(typestring){
-                            case "INT1": case "TINYINT":
+                        switch (typestring)
+                        {
+                            case "INT1":
+                            case "TINYINT":
                                 types.Add(typeof(byte));
                                 break;
-                            case "INT2": case "SMALLINT":
+                            case "INT2":
+                            case "SMALLINT":
                                 types.Add(typeof(Int16));
                                 break;
-                            case "INT4": case "MEDIUMINT":
+                            case "INT4":
+                            case "MEDIUMINT":
                                 types.Add(typeof(Int32));
                                 break;
                             default:
                                 types.Add(typeof(Int64));
                                 break;
                         }
-                    }else if(typestring.Contains("CHAR")| typestring.Contains("CLOB")| typestring.Contains("TEXT"))
+                    }
+                    else if (typestring.Contains("CHAR") | typestring.Contains("CLOB") | typestring.Contains("TEXT"))
                     {
                         types.Add(typeof(string));
-                    }else if (typestring.Contains("FLOA"))
+                    }
+                    else if (typestring.Contains("FLOA"))
                     {
                         types.Add(typeof(Single));
                     }
-                    else if (typestring.Contains("REAL")| typestring.Contains("DOUB"))
+                    else if (typestring.Contains("REAL") | typestring.Contains("DOUB"))
                     {
                         types.Add(typeof(double));
                     }
@@ -206,7 +218,7 @@ namespace Database.Reader
                     }
                     else if (typestring.Contains("BLOB"))
                     {
-                        types.Add(typeof(byte));
+                        //types.Add(typeof(byte));
                     }
                     else
                     {
