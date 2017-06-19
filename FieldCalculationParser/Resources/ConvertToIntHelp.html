@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>ConvertToInteger</title></head><body>
+<h1>ConvertToInteger</h1>
+<hr>
+<style>
+h2 {font-family: Arial;
+font-weight: bold;
+color: rgb(51, 102, 255);
+}
+</style>
+
+The <b>ConvertToInteger</b> function converts numerical values to the integer data type. The integer data type stores integer numbers using 4 bytes of memory. This amount of memory leads to optimized performance, but has a narrower range of values than other data types. Integer values can range from -2,147,483,648 through 2,147,483,647. When converting numbers to the integer data type make sure that no values exceed this range or an exception will be thrown.
+
+Numbers with decimal values will have the decimal portion truncated. This means that if the number 2.99 is being converted to an integer, the resulting value will be 2.<br>
+
+<h2>Syntax</h2>
+
+Int(value)<br>
+<br>
+<ul>
+
+	<li><span style="font-weight: bold;">value</span> This must be an expression that produces some sort of numerical result.</li>
+</ul>
+<br>
+
+
+<h2>Example</h2>
+
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <th style="vertical-align: top; font-weight: bold;">Formula<br>
+      </td>
+      <th style="vertical-align: top; font-weight: bold;">Result<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1<br>
+      </td>
+      <td style="vertical-align: top;">Int(65)</td>
+      <td style="vertical-align: top;">65</td>
+      
+    </tr>
+  <tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td style="vertical-align: top;">Int(32.89)</td>
+      <td style="vertical-align: top;">32</td>
+      
+    </tr>
+	  <tr>
+      <td style="vertical-align: top;">3<br>
+      </td>
+      <td style="vertical-align: top;">Int(5.2)</td>
+      <td style="vertical-align: top;">5</td>
+      
+    </tr>
+
+
+  </tbody>
+</table>
+  
+<BR>
+
+<br>
+
+
+</body></html>

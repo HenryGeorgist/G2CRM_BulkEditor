@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<HelpDocument title="Numerical operators" description="This is a series of functional operators that produce numerical results." width="800" height="600">
+  <Topic name="+" keywords="Numeric,Operator,Plus,Add,Sum" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">PlusHelp.html</Topic>
+  <Topic name="-" keywords="Numeric,Operator,Minus,Subtract,Negation,Negate" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">SubtractHelp.html</Topic>
+  <Topic name="*" keywords="Numeric,Operator,Times,Multiply,Product" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">MultiplyHelp.html</Topic>
+  <Topic name="/" keywords="Numeric,Operator,Divides,Division,Quotient" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">DivisionHelp.html</Topic>
+  <Topic name="^" keywords="Numeric,Operator,Carrot,Exponent,Raise,Power" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">ExponentHelp.html</Topic>
+  <Topic name="ROUNDDOWN" keywords="Numeric,Function,Value" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">ROUNDDOWNHelp.html</Topic>
+  <Topic name="ROUND" keywords="Numeric,Function,Value" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">ROUNDHelp.html</Topic>
+  <Topic name="ROUNDUP" keywords="Numeric,Function,Value" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">ROUNDUPHelp.html</Topic>
+  <Topic name="Index" keywords="Numeric,Value" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">IndexHelp.html</Topic>
+  <Topic name="OFFSET" keywords="Offset" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">offset.html</Topic>
+</HelpDocument>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+FieldCalculationParser
+</name>
+</assembly>
+<members>
+<member name="T:FieldCalculationParser.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:FieldCalculationParser.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:FieldCalculationParser.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:FieldCalculationParser.Parser.Scan">
+ <summary>
+ Advances to the next fully validated token.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:FieldCalculationParser.HeaderContainer.SetColNums(System.Collections.Generic.List{System.String})">
+ <summary>
+ this must be called before set type
+ </summary>
+ <param name="uniqueheaderNames"></param>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

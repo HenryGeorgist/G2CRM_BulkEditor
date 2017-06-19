@@ -1,0 +1,17 @@
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\Output\Debug\FieldCalculationParser.dll
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\Output\Debug\FieldCalculationParser.pdb
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\Output\Debug\FieldCalculationParser.xml
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\FieldCalculationParser\obj\x86\Debug\FieldCalculationParser.Resources.resources
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\FieldCalculationParser\obj\x86\Debug\FieldCalculationParser.vbproj.GenerateResource.Cache
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\FieldCalculationParser\obj\x86\Debug\FieldCalculationParser.dll
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\FieldCalculationParser\obj\x86\Debug\FieldCalculationParser.xml
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\FieldCalculationParser\obj\x86\Debug\FieldCalculationParser.pdb
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Output\Debug\FieldCalculationParser.dll
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Output\Debug\FieldCalculationParser.pdb
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Output\Debug\FieldCalculationParser.xml
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\FieldCalculationParser\obj\x86\Debug\FieldCalculationParser.vbprojResolveAssemblyReference.cache
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\FieldCalculationParser\obj\x86\Debug\FieldCalculationParser.Resources.resources
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\FieldCalculationParser\obj\x86\Debug\FieldCalculationParser.vbproj.GenerateResource.Cache
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\FieldCalculationParser\obj\x86\Debug\FieldCalculationParser.dll
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\FieldCalculationParser\obj\x86\Debug\FieldCalculationParser.xml
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\FieldCalculationParser\obj\x86\Debug\FieldCalculationParser.pdb

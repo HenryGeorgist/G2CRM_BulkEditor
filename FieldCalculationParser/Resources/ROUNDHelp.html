@@ -1,0 +1,100 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>ROUND</title></head><body>
+
+<style>
+h2 {font-family: Arial;
+font-weight: bold;
+color: rgb(51, 102, 255);
+}
+</style>
+  
+<h1>ROUND Function</h1>
+<hr></hr>
+Rounds a number to the nearest integer.<br>
+
+<br>
+
+<h2>Syntax</h2>
+ROUND(Number,Num_digits)
+
+<br>
+<br>
+<ul>
+	<li><span style="font-weight: bold;">Number </span>is any real number that you want rounded.</li><br>
+
+	<li><span style="font-weight: bold;">Num_digits </span> is the number of digits to which you want to round the number.</li><br>
+</ul>
+<br>
+
+<h2>Remarks</h2>
+
+<ul>
+<li>If num_digits is greater than 0 (zero), then number is rounded down to the 
+specified number of decimal places. </li>
+</ul>
+
+<ul>
+<li>If num_digits is 0 or nothing, then <b>Number</b> is rounded down to the nearest integer. </li>
+</ul>
+
+
+<br>
+
+
+<h2>Example</h2>
+
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<style>
+th {
+    text-align: left;
+}
+</style> 
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <tH style="vertical-align: top;">Formula<br>
+      </td>
+      <tH style="vertical-align: top;">Description<br>
+      </td>
+	  <tH style="vertical-align: top;">Result<br>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1<br>
+      </td>
+      <td style="vertical-align: top;">ROUND(3.2,0)<br>
+      </td>
+      <td style="vertical-align: top;">Rounds 3.2 down to zero decimal places</td>
+	  <br>
+	  <td style="vertical-align: top;">3</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td style="vertical-align: top;">ROUND(76.9)</td>
+      <td style="vertical-align: top;">Rounds 76.9 up to zero decimal places</td>
+	  <br>
+	  <td style="vertical-align: top;">77</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">3<br>
+      </td>
+      <td style="vertical-align: top;">ROUND(3.14159,3)</td>
+      <td style="vertical-align: top;">Rounds 3.14159 up to three decimal places</td>
+	  <br>
+	  <td style="vertical-align: top;">3.142</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">4<br>
+      </td>
+      <td style="vertical-align: top;">ROUND(-3.14159,1)</td>
+      <td style="vertical-align: top;">Rounds -3.14159 down to one decimal place</td>
+	  <br>
+	  <td style="vertical-align: top;">-3.1</td>
+    </tr>
+  </tbody>
+</table>
+
+
+</body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>INSTRING</title></head><body>
+ 
+<style>
+h2 {font-family: Arial;
+font-weight: bold;
+color: rgb(51, 102, 255);
+}
+</style>
+
+<h1>INSTRING Function</h1>
+<hr>The <b>INSTRING</b> function returns the integer value of the starting position of a string of text contained in another string of text. The first character in the string of text is position zero. If the string is not found in the string being searched the function results in a -1.
+</hr>
+<h2>Syntax</h2>
+INSTRING(stringToSearch,stringToFind)<br>
+
+<br>
+<ul>
+	<LI><span style="font-weight: bold;">stringToSearch</span> This must be an expression that produces some sort of string (text) result. If the value that you want to search is numerical, convert it to a string using the <b>ConvertToString()</b> function. </li>
+
+	<li><span style="font-weight: bold;">stringToFind</span> This must be an expression that produces some sort of string result. If the value that you want to search for is numerical, convert it to a string using the <b>ConvertToString()</b> function.</li>
+</ul>
+<br>
+<h2>Example</h2>
+
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<style>
+th {
+    text-align: left;
+}
+</style> 
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <tH style="vertical-align: top;">Formula<br>
+      </td>
+      <tH style="vertical-align: top;">Result<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1<br>
+      </td>
+      <td style="vertical-align: top;">INSTRING(abcdef,def)<br>
+      </td>
+      <td style="vertical-align: top;">3 (The first character of the string being searched starts at position zero).</td>
+    </tr>
+     <tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td style="vertical-align: top;">INSTRING('0123456','5')<br>
+      </td>
+      <td style="vertical-align: top;">5 (The first character of the string being searched starts at position zero).</td>
+    </tr>
+     <tr>
+      <td style="vertical-align: top;">3<br>
+      </td>
+      <td style="vertical-align: top;">INSTRING('Water','Rock')<br>
+      </td>
+      <td style="vertical-align: top;">-1 </td>
+    </tr>
+     <tr>
+      <td style="vertical-align: top;">4<br>
+      </td>
+      <td style="vertical-align: top;">INSTRING('Water','wat')<br>
+      </td>
+      <td style="vertical-align: top;">-1 (Capitalization matters)</td>
+    </tr>
+  </tbody>
+</table>
+
+<BR>
+<h2>Example 2</h2>
+
+Select every structure that has a <b>Found_Type</b> of "Slab".
+<br>
+<br>
+<img src="INSTRINGExample.png" alt="INSTRING Example" />
+<br>
+<br>
+The easies way to do this is to simply say [Found_Type]="Slab". This will select every structure with a foundation type of "Slab".
+<br>
+<br>
+<img src="INSTRINGExample2.png" alt="INSTRING Example2" />
+<br>
+<br>
+What if, however, you want to select every "RES1" structure? Notice that we cannot use the method above because each "RES1" structure has a different name.
+<br>
+<br>
+<img src="INSTRINGExample3.png" alt="INSTRING Example3" />
+<br>
+<br>
+This is where the <b>INSTRING</B> function can be very useful. This function, however, returns an integer value. It will be necessary to use an <b>IF</b> statement to convert the integer into a boolean value.
+<br>
+<br>
+<img src="INSTRINGExample4.png" alt="INSTRING Example4" />
+<br>
+<br>
+Use the <b>IF</b> function to return a value of "True" if the <b>INSTRING</b> function returns any number greater than -1, and a value of "False" otherwise.
+<br>
+<br>
+
+
+</body></html>

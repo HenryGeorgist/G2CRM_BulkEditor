@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Contains</title></head><body>
+<h1>CONTAINS Function</h1>
+<hr/>
+
+<style>
+h2 {font-family: Arial;
+font-weight: bold;
+color: rgb(51, 102, 255);
+}
+</style>
+
+The <b>CONTAINS</b> logic operator compares two character strings. If the first
+character string contains the second character sequence, it will return
+"True". A great time to use the <b>CONTAINS</b> operator is when selecting rows that contain a specific text value. 
+<h2>Syntax</h2>
+Contains(expression1,expression2)<br>
+
+<br>
+<ul>
+  <li><span style="font-weight: bold;">expression1</span> must be any logical expression,
+which means the expression must yeild either a result of "True" or
+"False".<br>
+
+  <li><span style="font-weight: bold;">expression2</span> must aslo be any logical expression.<br>
+</ul>
+<br>
+<h2>Example</h2>
+
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <th style="vertical-align: top; font-weight: bold;">Formula<br>
+      </td>
+      <th style="vertical-align: top; font-weight: bold;">Result<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1<br>
+      </td>
+      <td style="vertical-align: top;">Contains(abcdefg,def)</td>
+      <td style="vertical-align: top;">True</td>
+      
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td style="vertical-align: top;">Contains(ENGLAND,england)</td>
+      <td style="vertical-align: top;">True</td>
+    </tr>
+
+  <tr>
+      <td style="vertical-align: top;">3<br>
+      </td>
+      <td style="vertical-align: top;">Contains(abcd,xyz)</td>
+      <td style="vertical-align: top;">False</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<br>
+
+<h2>Example 2</h2>
+
+Using the <b>Select By Attribute</b> window, select every <b>BldgType</b> that is "Wood".
+<br>
+<br>
+<img src="CONTAINSExample.png" alt="CONTAINS Example">
+<br>
+<br>
+<img src="CONTAINSExample2.png" alt="CONTAINS Example">
+<br>
+<br>
+Keep in mind:
+<ul>
+    <li>Field names are enclosed in square brackets.</li>
+    <li>Text values are enclosed in quotation marks.</li>
+    <li>There are no spaces.</li>
+</ul>
+<br>
+<img src="CONTAINSExample3.png" alt="CONTAINS Example3">
+<br>
+<br>
+
+
+
+</body></html>

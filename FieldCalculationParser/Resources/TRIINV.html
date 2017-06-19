@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>TRIINV</title></head><body>
+<h1>TRIINV Funtion</h1>
+<hr></hr>
+<style>
+h2 {font-family: Arial;
+font-weight: bold;
+color: rgb(51, 102, 255);
+}
+</style>
+
+Returns a random integer number between the numbers you specify. A new random 
+integer number is returned every time the worksheet is calculated
+<h2>Syntax</h2>
+TRIINV(random_number,min,most_likely,max)<br><br>
+
+<ul>
+	<li><span style="font-weight: bold;">random_number</span>  is a decimal value between 0 and 1. Rand() is commonly used here.</li>
+	<li><span style="font-weight: bold;">min</span>  is the minimum integer Triinv could return.</li>
+	<li><span style="font-weight: bold;">most_likely</span> is the expected, or most likely, value </li>
+	<li><span style="font-weight: bold;">max</span>  is the largest integer Triinv could return.</li>
+</ul>
+<br>
+
+<h2>Example</h2>
+
+
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+
+  <tbody>
+   
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;font-weight: bold">Formula
+      </td>
+      <td style="vertical-align: top;font-weight: bold">Description/Result
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1<br>
+      </td>
+      <td style="vertical-align: top;">TRIINV(RAND(),1,2,3)
+      </td>
+      <td style="vertical-align: top;">Random number between 1 and 3 and most likely value of 2 (varies)
+      </td>
+    </tr>
+
+ <tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td style="vertical-align: top;">TRIINV(RAND(123),1,2,3)
+      </td>
+      <td style="vertical-align: top;">2.82425538546691 This result is a constant because the RAND() function has been given a seed. If left blank, the RAND() function uses the computer's clock as the seed resulting in a differnt number every time.</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">3<br>
+      </td>
+      <td style="vertical-align: top;">TRIINV(.5,0,500,1000)
+      </td>
+      <td style="vertical-align: top;">500</td>
+    </tr>
+
+
+
+    </tbody>
+</table>
+    
+<BR>
+
+
+<h3>See Also</h3>
+
+<table bgcolor="#F0F0F0" style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<style>
+th {
+    text-align: left;
+}
+</style> 
+  <tbody>
+<tr>
+<td style="vertical-align: top;">
+<a href="NORMINV.html" target="_blank">NORMINV</a>
+</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top;">
+<a href="RANDBETWEEN.html" target="_blank">RANDBETWEEN</a>
+</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top;">
+<a href="RANDINTBETWEEN.html" target="_blank">RANDINTBETWEEN</a>
+</td>
+
+</tr>
+
+
+<tr>
+<td style="vertical-align: top;">
+<a href="RANDINT.html" target="_blank">RANDINT</a>
+</td>
+
+</tr>
+
+<tr>
+<td style="vertical-align: top;">
+<a href="RAND.html" target="_blank">RAND</a>
+</td>
+
+</tr>
+
+
+
+    
+  </tbody>
+</table>
+
+
+  
+
+</body></html>

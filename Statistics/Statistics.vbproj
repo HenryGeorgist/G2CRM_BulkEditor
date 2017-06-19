@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{3C63C548-BB25-4B8D-857E-582B32B31C92}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Statistics</RootNamespace>
+    <AssemblyName>Statistics</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\Output\Debug\</OutputPath>
+    <DocumentationFile>Statistics.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Statistics.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>On</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>Statistics.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\Output\x64\Release\</OutputPath>
+    <DocumentationFile>Statistics.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>Statistics.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\Output\x86\Release\</OutputPath>
+    <DocumentationFile>Statistics.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContinuousDistributions\ContinuousDistribution.vb" />
+    <Compile Include="ContinuousDistributions\ContinuousDistributionException.vb" />
+    <Compile Include="ContinuousDistributions\Emperical.vb" />
+    <Compile Include="ContinuousDistributions\LinearMoments\LExponential.vb" />
+    <Compile Include="ContinuousDistributions\LinearMoments\LGEV.vb" />
+    <Compile Include="ContinuousDistributions\LinearMoments\LGumbel.vb" />
+    <Compile Include="ContinuousDistributions\LinearMoments\LinearMomentsStats.vb" />
+    <Compile Include="ContinuousDistributions\LinearMoments\LLogistic.vb" />
+    <Compile Include="ContinuousDistributions\LinearMoments\LLogNormal.vb" />
+    <Compile Include="ContinuousDistributions\LinearMoments\LLogPearsonIII.vb" />
+    <Compile Include="ContinuousDistributions\LinearMoments\LNormal.vb" />
+    <Compile Include="ContinuousDistributions\LinearMoments\LPareto.vb" />
+    <Compile Include="ContinuousDistributions\LinearMoments\LTriangular.vb" />
+    <Compile Include="ContinuousDistributions\LinearMoments\LUniform.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\BasicProductMomentsStats.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\BasicProductMomentsStatsHistogram.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\Beta.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\ChiSquared.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\Exponential.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\Gamma.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\Gumbel.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\Lindell.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\Log10Normal.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\LogNormal.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\LogPearsonIII.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\NonCentralT.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\None.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\Normal.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\PearsonIII.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\Pert.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\ProductMomentsStats.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\Rayleigh.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\ShiftedGamma.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\Triangular.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\TruncatedLogNormal.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\TruncatedNormal.vb" />
+    <Compile Include="ContinuousDistributions\MethodOfMomements\Uniform.vb" />
+    <Compile Include="Curves\CurveErrorReporting\CurveError.vb" />
+    <Compile Include="Curves\CurveErrorReporting\ErrorReport.vb" />
+    <Compile Include="Curves\GenericCurveSingle.vb" />
+    <Compile Include="Curves\GenericCurveUncertain.vb" />
+    <Compile Include="Curves\MonotonicCurveDecreasing.vb" />
+    <Compile Include="Curves\MonotonicCurveIncreasing.vb" />
+    <Compile Include="Curves\MonotonicCurveUException.vb" />
+    <Compile Include="Curves\MonotonicCurveUSingle.vb" />
+    <Compile Include="Curves\PairedData.vb" />
+    <Compile Include="Math\statistics.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PDF_Factory.vb" />
+    <Compile Include="VectorMath\CorrelatedRandomNumbers.vb" />
+    <Compile Include="VectorMath\LinearAlgebra.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

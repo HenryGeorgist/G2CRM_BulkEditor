@@ -1,0 +1,110 @@
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1"
+http-equiv="content-type">
+<title>Random Number Generator</title>
+
+
+<style>
+body {background-color: White;
+}
+
+h2 {font-family: Arial;
+font-weight: bold;
+color: rgb(51, 102, 255);
+}
+
+a, u {
+text-decoration: none;
+}
+
+.Bold {
+font-weight: bold;
+}
+</style>
+
+
+</head>
+
+<h1>RAND Function</h1>
+<hr>The RAND function produces random numbers between zero and 1. This
+function is useful for providing input probabilities for NormINV and
+TriINV.
+<br>
+<h2>Syntax</h2>
+RAND([Seed])<br>
+
+<ul>
+	<li><span style=" font-weight: bold">seed</span> is an integer value that initializes the random number
+sequence.&nbsp; This argurment is optional.</li>
+</ul>
+
+<br>
+<h3>Restrictions:</h3>
+If a seed is provided it must be numeric, if it is not, a parse error
+will be
+raised
+<br>
+<br>
+<br>
+
+<h2>Evaluation</h2>
+
+
+<p>The method is a subtractive random number generator, as described by D. H. Lehmer and
+described by
+Donald E. Knuth in <i>The Art of Computer Programming,</i> Volume 2: <i>Seminumerical
+Algorithms</i>
+<p>X<sub>(n)</sub>=X<sub>n-i</sub>- X<sub>n-j</sub>(mod m)</p>
+
+<br>
+<br>
+
+
+<h2>Example</h2>
+
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <tH style="vertical-align: top;">Formula<br>
+      </td>
+      <tH style="vertical-align: top;">Description(Result)<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1<br>
+      </td>
+      <td style="vertical-align: top;">Rand()<br>
+      </td>
+      <td style="vertical-align: top;">Between 0 and 1. Varies depending on the time in milliseconds</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td style="vertical-align: top;">Rand(1234)</td>
+      <td style="vertical-align: top;">0.399080979357977</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">3<br>
+      </td>
+      <td style="vertical-align: top;">Rand(54321)</td>
+      <td style="vertical-align: top;">0.391735337857034</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<br>
+<h2>Common Use</h2>
+A common use of the expression is to use the Rand() function for the
+probability.&nbsp; When NormINV uses the Rand() function for the
+probability, each row within the column where the expression is used
+randomly assigns a triangularly distributed value in the result of the
+expression. (i.e. TriINV(rand(),1,2,3), this could be representative of
+foundation heights for structures distributed between 1 ft and 3 ft,
+with a most likely value of 2 ft)<br>
+<br>
+

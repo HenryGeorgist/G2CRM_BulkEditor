@@ -1,0 +1,15 @@
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\Output\Debug\QuickHelp.dll
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\Output\Debug\QuickHelp.pdb
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\Output\Debug\QuickHelp.xml
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\x86\Debug\QuickHelp.vbproj.ResolveComReference.cache
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\x86\Debug\HelpButton.baml
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\x86\Debug\HelpDialog.baml
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\x86\Debug\HelpButton.g.vb
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\x86\Debug\HelpDialog.g.vb
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\x86\Debug\QuickHelp_MarkupCompile.cache
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\x86\Debug\QuickHelp.g.resources
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\x86\Debug\QuickHelp.Resources.resources
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\x86\Debug\QuickHelp.vbproj.GenerateResource.Cache
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\x86\Debug\QuickHelp.dll
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\x86\Debug\QuickHelp.xml
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\x86\Debug\QuickHelp.pdb

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<HelpDocument title="Statistics Functions Help" description="A series of functional operators that produce outcomes that vary for each execution." width="750" height="600">
+  <Topic name="NORMINV" keywords="statistics,normal,double" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser" Images="normalCDF.gif">NORMINVHelp.html</Topic>
+  <Topic name="TRIINV" keywords="statistics,triangular,double" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser" Images="normalCDF.gif">TRIINVHelp.html</Topic>
+  <Topic name="RAND" keywords="statistics,random,double" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">RANDHelp.html</Topic>
+  <Topic name="RANDINT" keywords="statistics,random,integer" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">RANDINTHelp.html</Topic>
+  <Topic name="RANDBETWEEN" keywords="statistics,random,double" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">RANDBETWEENHelp.html</Topic>
+  <Topic name="RANDINTBETWEEN" keywords="statistics,random,integer" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">RandIntBetweenHelp.html</Topic>
+</HelpDocument>

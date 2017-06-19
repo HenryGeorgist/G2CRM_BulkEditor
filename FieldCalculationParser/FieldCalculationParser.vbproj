@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{9B819B76-4934-4C01-B7EC-3893D0872555}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FieldCalculationParser</RootNamespace>
+    <AssemblyName>FieldCalculationParser</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>On</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\Output\Debug\</OutputPath>
+    <DocumentationFile>FieldCalculationParser.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\Output\Release\</OutputPath>
+    <DocumentationFile>FieldCalculationParser.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Statistics">
+      <HintPath>..\..\Statistics\Statistics\bin\Debug\Statistics.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DisplayTypes.vb" />
+    <Compile Include="IDisplayToTreeNode.vb" />
+    <Compile Include="ParseTreeNodes\Errors\BinaryErrorExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Errors\ErrorNode.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Parser.vb" />
+    <Compile Include="ParseTreeNodes\Booleans\AndExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Booleans\BinaryBoolExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Booleans\BoolExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Booleans\BoolNode.vb" />
+    <Compile Include="ParseTreeNodes\Booleans\ContainsExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Booleans\EQExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Booleans\GEExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Booleans\GTExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Booleans\IfExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Booleans\LEExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Booleans\LTExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Booleans\NEQExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Headers\OffsetExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Booleans\OrExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Converters\ConvertToBoolean.vb" />
+    <Compile Include="ParseTreeNodes\Converters\ConvertToByte.vb" />
+    <Compile Include="ParseTreeNodes\Converters\ConvertToDouble.vb" />
+    <Compile Include="ParseTreeNodes\Converters\ConvertToInteger.vb" />
+    <Compile Include="ParseTreeNodes\Converters\ConvertToShort.vb" />
+    <Compile Include="ParseTreeNodes\Converters\ConvertToString.vb" />
+    <Compile Include="ParseTreeNodes\Headers\HeaderContainer.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\BinaryNumExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\DivideExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\ExponentExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\IndexNumNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\MinusExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\MultiplyExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\NegationNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\NormalDistExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\NumExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\NumIntNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\NumNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\PlusExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\RandBetweenNumExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\RandIntBetweenNumExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\RandIntNumExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\RandNumExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\RoundDownNumExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\RoundNumExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\RoundUpNumExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Numerics\TriangularDistExprNode.vb" />
+    <Compile Include="ParseTreeNodes\ParseTreeNode.vb" />
+    <Compile Include="ParseTreeNodes\ParseTreeNodeResult.vb" />
+    <Compile Include="ParseTreeNodes\Strings\BinaryStringExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Strings\ConcatenateExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Strings\InstringExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Strings\LeftExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Strings\LenEXPRNode.vb" />
+    <Compile Include="ParseTreeNodes\Strings\RightExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Strings\StringExprNode.vb" />
+    <Compile Include="ParseTreeNodes\Strings\StringNode.vb" />
+    <Compile Include="ParseTreeNodes\Strings\SubStringExprNode.vb" />
+    <Compile Include="Scanner.vb" />
+    <Compile Include="Token.vb" />
+    <Compile Include="TokenEnum.vb" />
+    <Compile Include="TypeEnum.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Booleans.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Numerics.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Strings.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\offset.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Converters.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\GE.html" />
+    <EmbeddedResource Include="Resources\GT.html" />
+    <EmbeddedResource Include="Resources\LE.html" />
+    <EmbeddedResource Include="Resources\LT.html" />
+    <EmbeddedResource Include="Resources\ConvertToBooleanHelp.html" />
+    <EmbeddedResource Include="Resources\ConvertToDoubleHelp.html" />
+    <EmbeddedResource Include="Resources\normalcdf.jpg" />
+    <EmbeddedResource Include="Resources\Not equal.html" />
+    <EmbeddedResource Include="Resources\RANDINTHelp.html" />
+    <EmbeddedResource Include="Resources\Statistics.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ANDExample.png" />
+    <EmbeddedResource Include="Resources\ANDExample2.png" />
+    <EmbeddedResource Include="Resources\ANDExample3.png" />
+    <EmbeddedResource Include="Resources\CONTAINSExample.png" />
+    <EmbeddedResource Include="Resources\CONTAINSExample2.png" />
+    <EmbeddedResource Include="Resources\CONTAINSExample3.png" />
+    <EmbeddedResource Include="Resources\IFExample.png" />
+    <EmbeddedResource Include="Resources\IFExample2.png" />
+    <EmbeddedResource Include="Resources\IFExample3.png" />
+    <EmbeddedResource Include="Resources\INSTRINGExample.png" />
+    <EmbeddedResource Include="Resources\INSTRINGExample2.png" />
+    <EmbeddedResource Include="Resources\INSTRINGExample3.png" />
+    <EmbeddedResource Include="Resources\INSTRINGExample4.png" />
+    <EmbeddedResource Include="Resources\ORExample.png" />
+    <EmbeddedResource Include="Resources\ORExample2.png" />
+    <EmbeddedResource Include="Resources\ORExample3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ANDHelp.html" />
+    <EmbeddedResource Include="Resources\ConcatenateHelp.html" />
+    <EmbeddedResource Include="Resources\CONTAINSHelp.html" />
+    <EmbeddedResource Include="Resources\ConvertToByteHelp.html" />
+    <EmbeddedResource Include="Resources\ConvertToIntHelp.html" />
+    <EmbeddedResource Include="Resources\ConvertToShortHelp.html" />
+    <EmbeddedResource Include="Resources\ConvertToStringHelp.html" />
+    <EmbeddedResource Include="Resources\DivisionHelp.html" />
+    <EmbeddedResource Include="Resources\EqualsHelp.html" />
+    <EmbeddedResource Include="Resources\ExponentHelp.html" />
+    <EmbeddedResource Include="Resources\IFHelp.html" />
+    <EmbeddedResource Include="Resources\IndexHelp.html" />
+    <EmbeddedResource Include="Resources\INSTRINGHelp.html" />
+    <EmbeddedResource Include="Resources\LEFTHelp.html" />
+    <EmbeddedResource Include="Resources\LENHelp.html" />
+    <EmbeddedResource Include="Resources\MultiplyHelp.html" />
+    <EmbeddedResource Include="Resources\NORMINVHelp.html" />
+    <EmbeddedResource Include="Resources\ORHelp.html" />
+    <EmbeddedResource Include="Resources\PlusHelp.html" />
+    <EmbeddedResource Include="Resources\RANDBETWEENHelp.html" />
+    <EmbeddedResource Include="Resources\RANDHelp.html" />
+    <EmbeddedResource Include="Resources\RandIntBetweenHelp.html" />
+    <EmbeddedResource Include="Resources\RIGHTHelp.html" />
+    <EmbeddedResource Include="Resources\ROUNDDOWNHelp.html" />
+    <EmbeddedResource Include="Resources\ROUNDHelp.html" />
+    <EmbeddedResource Include="Resources\ROUNDUPHelp.html" />
+    <EmbeddedResource Include="Resources\SUBSTRINGHelp.html" />
+    <EmbeddedResource Include="Resources\SubtractHelp.html" />
+    <EmbeddedResource Include="Resources\TRIINVHelp.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\normalCDF.gif" />
+    <EmbeddedResource Include="Resources\NORMINV.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\RANDINTBETWEEN.html" />
+    <EmbeddedResource Include="Resources\TRIINV.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

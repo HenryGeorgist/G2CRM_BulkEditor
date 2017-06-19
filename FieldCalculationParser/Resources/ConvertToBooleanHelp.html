@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>ConvertToBoolean</title></head><body>
+<h1>ConvertToBoolean Function</h1>
+
+<style>
+h2 {font-family: Arial;
+font-weight: bold;
+color: rgb(51, 102, 255);
+}
+</style>
+<hr/>
+The BOOL function returns a true or false value.<br>
+
+<br>
+
+<h2>Syntax</h2>
+
+Bool(value)<br>
+
+<UL>
+	<li><span style="font-weight: bold;">value</span> This can be anything that can be evaluated to either true or false.</li>
+</ul>
+
+<br>
+
+
+<h2>Example</h2>
+
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<style>
+th {
+    text-align: left;
+}
+</style> 
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <tH style="vertical-align: top;">Formula<br>
+      </td>
+      <tH style="vertical-align: top;">Result<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1<br>
+      </td>
+      <td style="vertical-align: top;">BOOL(Val_Struct>100000)<br>
+      </td>
+      <td style="vertical-align: top;">True if the value of the structure is greater than 100,000.</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td style="vertical-align: top;">BOOL(OccType=SFR1)</td>
+      <td style="vertical-align: top;">True if the occupancy type is "SFR1".</td>
+    </tr>
+
+	    <tr>
+      <td style="vertical-align: top;">4<br>
+      </td>
+      <td style="vertical-align: top;">BOOL(2*2=4)</td>
+      <td style="vertical-align: top;">True</td>
+    </tr>
+	    <tr>
+      <td style="vertical-align: top;">3<br>
+      </td>
+      <td style="vertical-align: top;">BOOL(True)</td>
+      <td style="vertical-align: top;">True</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">4<br>
+      </td>
+      <td style="vertical-align: top;">BOOL(False)</td>
+      <td style="vertical-align: top;">False</td>
+    </tr>
+
+  </tbody>
+</table>
+<BR>
+
+  
+
+</body></html>

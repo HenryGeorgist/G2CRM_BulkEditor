@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Triangular Distribution Inverse</title>
+
+  
+  
+  <style>
+        body {background-color: White;
+        }
+
+        h2 {font-family: Arial;
+            font-weight: bold;
+            color: rgb(51, 102, 255);
+        }
+
+        a, u {
+            text-decoration: none;
+        }
+
+        .Bold {
+            font-weight: bold;
+        }
+    </style>
+</head><body style="width: 750px;">
+<h1>TriINV Function</h1>
+
+<hr>The TriINV function returns the inverse of the <a target="_blank" href="http://en.wikipedia.org/wiki/Triangular_distribution">Triangular
+Distribution Cumulative Distribution Function (CDF)</a> (See Image
+1).&nbsp; The Triangular Distribution CDF returns the probability of a normally
+distributed value X&#8805;x.&nbsp; The inverse of that would be, for a
+given probability, what is a value X&#8805;x.&nbsp; This function is useful
+for randomly assigning values that are triangularly distributed.<br>
+
+<br>
+
+<img style="width: 533px; height: 383px;" alt="The Normal Distribution CDF" title="The Normal Distribution CDF" src="normalCDF.gif"><br>
+
+Image 1 The Triangular Distribution Cumulative Distribution Function<br>
+
+<br>
+
+<h2>Syntax</h2>
+
+TriINV(probability,min,most likely,max)<br>
+
+<br>
+
+<ul>
+	<li><b>Probability</b> is a number that is between zero and 1</li><br>
+	<li><b>Min</b> is the lowest value of the distribution</li><br>
+	<li><b>Most Likely</b> is the value that occurs most frequentlly</li><br>
+	<li><b>Max</b> is the highest valueof the distribution</li><br>
+	
+</ul>
+
+
+<h3>Restrictions:</h3>
+
+Probability must be less than 1 and greater than 0, if it is not, a
+parse error is raised.<br>
+
+All arguments must be numeric, if they are not, a parse error will be
+raised<br>
+
+The min cannot be greater than the most likely, and the max cannot be less than the most likely, if it is, a
+parse error is raised.<br>
+
+<br>
+
+<h2>Examples</h2>
+
+<table style="text-align: center; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <th>Expression</th>
+      <th>Result</th>
+    </tr>
+    <tr>
+      <td>TriINV(.5,5,7,15)</td>
+      <td>8.67544467966324</td>
+    </tr>
+    <tr>
+      <td>TriINV(.99,5,10,15)</td>
+      <td>14.2928932188<br>
+</td>
+    </tr>
+    <tr>
+      <td>TriINV(.01,5,10,15)</td>
+      <td>5.70710678118655<br>
+</td>
+    </tr>
+    <tr>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<h2>Common Use</h2>
+A common use of the expression is to use the Rand() function for the
+probability.&nbsp; When NormINV uses the Rand() function for the
+probability, each row within the column where the expression is used
+randomly assigns a triangularly distributed value in the result of the
+expression. (i.e. TriINV(rand(),1,2,3), this could be representative of
+foundation heights for structures distributed between 1 ft and 3 ft,
+with a most likely value of 2 ft)<br>
+
+<br>
+
+<br>
+
+</body></html>

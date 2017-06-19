@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>NORMINV</title></head><body>
+<h1>NORMINV Funtion</h1>
+<hr></hr>
+
+Returns the inverse of the normal cumulative distribution for the specified 
+mean and standard deviation.
+<h2>Syntax</h2>
+
+<style>
+h2 {font-family: Arial;
+font-weight: bold;
+color: rgb(51, 102, 255);
+}
+</style>
+
+
+NORMINV(probability,mean,standard_dev)<br><br>
+
+<ul>
+	<li><span style="font-weight: bold;">probability</span>  is a probability corresponding to the normal distribution.</li>
+	<li><span style="font-weight: bold;">mean</span>  is the arithmetic mean of the distribution.</li>
+	<li><span style="font-weight: bold;">standard_dev</span>  is the standard deviation of the distribution.</li>
+</ul>
+<br>
+Given a value for probability, NORMINV seeks that value x such that 
+NORMDIST(x, mean, standard_dev, TRUE) = probability. Thus, precision of NORMINV 
+depends on precision of NORMDIST. NORMINV uses an iterative search technique. If 
+the search has not converged after 100 iterations, the function returns the #N/A 
+error value.<br>
+<h2>Example</h2>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+   
+    
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;font-weight: bold">Formula<br>
+      </td>
+      <td style="vertical-align: top;font-weight: bold">Result<br>
+      </td>
+    </tr>
+    <tr>
+	<td style="vertical-align: top;">1<br>
+      </td>
+      <td style="vertical-align: top;">NORMINV(.908789,40,1.5)<br>
+      </td>
+      <td style="vertical-align: top;">42</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+
+<h3>See Also</h3>
+
+<table bgcolor="#F0F0F0" style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<style>
+th {
+    text-align: left;
+}
+</style> 
+  <tbody>
+<tr>
+<td style="vertical-align: top;">
+<a href="RANDBETWEEN.html" target="_blank">RANDBETWEEN</a>
+</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top;">
+<a href="RANDINTBETWEEN.html" target="_blank">RANDINTBETWEEN</a>
+</td>
+
+</tr>
+
+
+<tr>
+<td style="vertical-align: top;">
+<a href="RANDINT.html" target="_blank">RANDINT</a>
+</td>
+
+</tr>
+
+<tr>
+<td style="vertical-align: top;">
+<a href="RAND.html" target="_blank">RAND</a>
+</td>
+
+</tr>
+
+<tr>
+<td style="vertical-align: top;">
+<a href="TRIINV.html" target="_blank">TRIINV</a>
+</td>
+</tr>
+</tbody>
+
+</body></html>

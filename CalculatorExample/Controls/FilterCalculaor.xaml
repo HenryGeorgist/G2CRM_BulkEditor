@@ -1,0 +1,60 @@
+﻿<Window x:Class="CalculatorExample.Controls.FilterCalculaor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalculatorExample.Controls"
+        xmlns:controls="clr-namespace:CalculatorExample.Controls"
+        mc:Ignorable="d"
+        Title="Calculator" Height="700" Width="525">
+    <Grid Name ="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Name="WhereTextBoxRow" Height="*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Name="ExpressionTextBoxRow" Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Select from table where:"/>
+            <StackPanel Margin="5,0,0,0" Orientation="Horizontal" Grid.Column="1">
+                <!--<Button Name="Plus" Click="Plus_Click" Content="+" Height="20" Width="20" Margin="5,0,0,0"/>
+                <Button Name="Minus" Click="Minus_Click" Content="-" Height="20" Width="20" Margin="5,0,0,0"/>
+                <Button Name="Divide" Click="Divide_Click" Content="" Height="20" Width="20" Margin="5,0,0,0"/>
+                <Button Name="Multiply" Click="Multiply_Click" Content="*" Height="20" Width="20" Margin="5,0,0,0"/>
+                <Button Name="Exponent" Click="Exponent_Click" Content="^" Height="20" Width="20" Margin="5,0,0,0"/>
+                <Button Name="Equals" Click="Equals_Click" Content="=" Height="20" Width="20" Margin="5,0,0,0"/>-->
+            </StackPanel>
+        </Grid>
+
+        <!--<h:HelpButton HorizontalAlignment="Right" Height="19" Width="19" Margin="5,2,5,2" PathIsEmbeddedResource="true" xmlPATH="CalculatorWindow.xml" AssemblyName="FCTester"/>-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <controls:AvailableFunctionsTreeView Grid.Column="1" Margin="5" x:Name="AvailableFunctions"/>
+            <!--<TreeView Grid.Column="0" Margin="5" Name="AvailableFields" MouseDoubleClick="AvailableFields_MouseDoubleClick"/>-->
+        </Grid>
+        <controls:ExpressionTextBox Grid.Row="3" Margin="5" x:Name="TestWindow"></controls:ExpressionTextBox>
+        <Label Content="Selected Field =" Grid.Row="4"/>
+        <controls:ExpressionTextBox Grid.Row="5" Margin="5" x:Name="TestexpressionWindow"></controls:ExpressionTextBox>
+        <Label Grid.Row="6" Name ="Result" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right" Margin="2">
+            <!--<CheckBox Name="IsCaseSensitive" Content="Match Case" HorizontalAlignment="Right" Margin="3" Grid.Row="4" VerticalAlignment="Center" IsChecked="True" Unchecked="IsCaseSensitive_Unchecked" Checked="IsCaseSensitive_Checked"/>
+            <Button Name="CmdErrorLog" Content="Error Log" HorizontalAlignment="Right" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="75" Click="CmdErrorLog_Click"/>
+            <Button Name="CmdExecute" Content="Execute" HorizontalAlignment="Right" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="75" Click="CmdExecute_Click"/>
+            <Button Name="CmdClose" Content="Close" HorizontalAlignment="Right" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="75" Click="CmdClose_Click"/>-->
+        </StackPanel>
+
+
+
+    </Grid>
+</Window>

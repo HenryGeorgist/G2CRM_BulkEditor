@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<HelpDocument title="Boolean Expressions and Operators" description="This help document describes various boolean operators and expressions that produce boolean results. The document explains syntax and offers examples." width="800" height="600">
+  <Topic name="IF" keywords="conditional,con,If,Then,Else" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser" Images="IFExample.png,IFExample2.png,IFExample3.png">IFHelp.html</Topic>
+  <Topic name="!=" keywords="Not,NotEqual" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">Not equal.html</Topic>
+  <Topic name="OR" keywords="or,logical,inclusive,exclusive" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser" Images="ORExample.png,ORExample2.png,ORExample3.png">ORHelp.html</Topic>
+  <Topic name="AND" keywords="and,logical,inclusive,exclusive" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser" Images="ANDExample.png,ANDExample2.png,ANDExample3.png">ANDHelp.html</Topic>
+  <Topic name="CONTAINS" keywords="Contains,logical" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser" Images="CONTAINSExample.png,CONTAINSExample2.png,CONTAINSExample3.png">CONTAINSHelp.html</Topic>
+  <Topic name="=" keywords="equal,logical" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">EqualsHelp.html</Topic>
+  <Topic name=">" keywords="Greater than, logical" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">GT.html</Topic>
+  <Topic name="&lt;" keywords="Less than, logical" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">LT.html</Topic>
+  <Topic name=">=" keywords="Greater than or equal to, logical" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">GE.html</Topic>
+  <Topic name="&lt;=" keywords="Less than or equal to, logical" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">LE.html</Topic>
+</HelpDocument>

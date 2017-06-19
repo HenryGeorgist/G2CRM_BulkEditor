@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>IF</title></head><body>
+<h1><span style="font-weight: bold;">IF Function</span></h1>
+
+<hr></hr>
+
+<style>
+h2 {font-family: Arial;
+font-weight: bold;
+color: rgb(51, 102, 255);
+}
+</style>
+
+<br>
+The <b>IF</b> function returns one value if a condition you 
+specify evaluates to TRUE, and another value if that condition evaluates to 
+FALSE. For example, the formula =IF(A1&gt;10,"Over 10","10 or 
+less") returns "Over 10" if A1 is greater than 10, and "10 or less" if A1 is 
+less than or equal to 10.<br>
+<br>
+<h2>Syntax</h2>
+IF(logical_test,value_if_true,value_if_false)<br>
+<br>
+<ul>
+  <li><span style="font-weight: bold;">logical_test </span>Required. Any value or expression that can be evaluated to TRUE or FALSE. For 
+example, A10=100 is a logical expression; if the value in cell A10 is equal to 
+100, the expression evaluates to TRUE. Otherwise, the expression evaluates to 
+FALSE. This argument can use any comparison calculation operator.</li>
+</ul>
+<ul>
+  <li><span style="font-weight: bold;">value_if_true</span> Required. The value that you want to be returned if the <span style="font-style: italic;">logical_test </span>argument evaluates to TRUE. For example, if the value of this argument is the 
+text string "Within budget" and the <span style="font-style: italic;">logical_test </span>argument evaluates to TRUE, the <b>IF</b> function returns the text 
+"Within budget." If your result needs to be a boolean value (True or False), such as when using <b>Select By Attribute</b>, use the litteral value "True" (capitalization doesn't matter).</li>
+</ul>
+<ul>
+  <li><span style="font-weight: bold;">value_if_false </span>Required. The value that you want to be returned if the <span style="font-style: italic;">logical_test </span>argument evaluates to FALSE. For example, if the value of this argument is the 
+text string "Over budget" and the <span style="font-style: italic;">logical_test </span>argument evaluates to FALSE, the <span style="font-weight: bold;">IF </span>function returns the text "Over budget." If <span style="font-style: italic;">logical_test </span>evaluates to FALSE and the <span style="font-weight: bold;">value_if_false </span>argument is omitted, (that is, there is no comma following the <span style="font-weight: bold;">value_if_true </span>argument), the <span style="font-weight: bold;">IF</span> function returns the logical value FALSE. If your result needs to be a boolean value (True or False), such as when using <b>Select By Attribute</b>, use the litteral value "False" (capitalization doesn't matter). </li><br>
+
+</ul>
+<h2>Example 1</h2>
+A = 50 <br>
+B = 23 <br>
+
+
+<table style="text-align: left; width: 100%" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+   
+
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: left; font-weight: bold;">Formula<br>
+      </td>
+      <td style="vertical-align: top; text-align: left; font-weight: bold;">Description<br>
+      </td>
+      <td style="vertical-align: top; text-align: left;"><span style="font-weight: bold;">Result</span><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1<br>
+      </td>
+      <td style="vertical-align: top; text-align: left;">IF(A&lt;=100,"Within budget","Over budget")</td>
+      <td style="vertical-align: top; text-align: left;">If the number associated with A is less than or equal to 100, the formula returns 
+"Within budget." Otherwise, the function displays "Over budget."</td>
+      <td style="vertical-align: top; text-align: left;">Within budget</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td style="vertical-align: top; text-align: left;">IF(A=100,A+B,A)</td>
+      <td style="vertical-align: top; text-align: left;">If the number associated with A is equal to 100, A + B is calculated and returned. 
+Otherwise, A is returned.</td>
+      <td style="vertical-align: top; text-align: left;">50</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<h2>Example 2</h2>
+<br>
+
+
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: left;">A<br>
+      </td>
+      <td style="vertical-align: top; text-align: left;">B<br>
+      </td>
+      <td style="vertical-align: top; text-align: left;">C<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1<br>
+      </td>
+      <td colspan="1" rowspan="1" style="vertical-align: top; text-align: left; font-weight: bold;">Actual Expenses<br>
+      </td><td colspan="1" style="vertical-align: top; font-weight: bold;">Predicted Expenses<br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td style="vertical-align: top; text-align: left;">1500<br>
+      </td>
+      <td style="vertical-align: top; text-align: left;">900<br>
+      </td>
+      <td style="vertical-align: top; text-align: left;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">3<br>
+      </td>
+      <td style="vertical-align: top; text-align: left;">500<br>
+      </td>
+      <td style="vertical-align: top; text-align: left;">900<br>
+      </td>
+      <td style="vertical-align: top; text-align: left;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">4<br>
+      </td>
+      <td style="vertical-align: top;">500<br>
+      </td>
+      <td style="vertical-align: top;">925<br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">5<br>
+      </td>
+      <td style="vertical-align: top; font-weight: bold;">Formula<br>
+      </td>
+      <td style="vertical-align: top; font-weight: bold;">Description<br>
+      </td>
+      <td style="vertical-align: top; font-weight: bold;">Result</td>
+    </tr>
+<tr>
+      <td style="vertical-align: top;">6<br>
+      </td>
+      <td style="vertical-align: top; text-align: left;">IF(A2&gt;B2,"Over Budget","OK")</td>
+      <td style="vertical-align: top; text-align: left;">Checks whether the expenses in row 2 are over budget</td>
+      <td style="vertical-align: top; text-align: left;">Over Budget</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">7<br>
+      </td>
+      <td style="vertical-align: top; text-align: left;">IF(A3&gt;B3,"Over Budget","OK")</td>
+      <td style="vertical-align: top; text-align: left;">Checks whether the expenses in row 3 are over budget</td>
+      <td style="vertical-align: top; text-align: left;">OK</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<h2>Example 3</h2>
+
+In the <b>Select By Attribute</b> window, select every building with a <b>Found_Ht</b> of 3 feet.
+<br>
+<br>
+<img src="IFExample2.png" alt="IF Example">
+<br>
+<br>
+<img src="IFExample.png" alt="IF Example2">
+<br>
+<br>
+Keep in mind:
+<ul>
+    <li>Field names are enclosed in square brackets.</li>
+    <li>Text values are enclosed in quotation marks.</li>
+    <li>There are no spaces.</li>
+</ul>
+<br>
+<img src="IFExample3.png" alt="IF Example3">
+
+
+
+</body></html>

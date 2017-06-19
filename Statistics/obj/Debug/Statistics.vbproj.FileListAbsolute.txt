@@ -1,0 +1,9 @@
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Output\Debug\Statistics.dll
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Output\Debug\Statistics.pdb
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Output\Debug\Statistics.xml
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Statistics\obj\Debug\Statistics.Resources.resources
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Statistics\obj\Debug\Statistics.vbproj.GenerateResource.Cache
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Statistics\obj\Debug\Statistics.dll
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Statistics\obj\Debug\Statistics.xml
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Statistics\obj\Debug\Statistics.pdb
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Statistics\obj\Debug\Statistics.vbprojResolveAssemblyReference.cache

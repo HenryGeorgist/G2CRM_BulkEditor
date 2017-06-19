@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>RANDINTBETWEEN</title></head><body>
+<h1>RANDINTBETWEEN Funtion</h1>
+<hr></hr>
+
+Returns a random integer number between the numbers you specify. The random number could be the first number you specify up to the last number minus one. A new random 
+integer number is returned every time the worksheet is calculated.
+<h2>Syntax</h2>
+RANDINTBETWEEN(min,max,[seed])<br><br>
+
+
+<style>
+h2 {font-family: Arial;
+font-weight: bold;
+color: rgb(51, 102, 255);
+}
+</style>
+
+<ul>
+
+	<li><span style="font-weight: bold;">min</span>  is the smallest integer RANDINTBETWEEN will return.</li><br>
+
+	<li><span style="font-weight: bold;">max</span>  is one higher than the largest integer RANDINTBETWEEN will return.</li><br>
+	<li><b>seed</b> is an optional seed value for the random number generator.</li><br>
+
+</ul>
+
+<h2>Example</h2>
+
+
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+
+  <tbody>
+
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;font-weight: bold">Formula
+      </td>
+      <td style="vertical-align: top;font-weight: bold">Result
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1<br>
+      </td>
+      <td style="vertical-align: top;">RANDINTBETWEEN(1,100)
+      </td>
+      <td style="vertical-align: top;">Random number between 1 and 99
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td style="vertical-align: top;">RANDINTBETWEEN(-1,1)
+      </td>
+      <td style="vertical-align: top;">Random number between -1 and 0</td>
+    </tr>
+		    <tr>
+      <td style="vertical-align: top;">3<br>
+      </td>
+      <td style="vertical-align: top;">RANDINTBETWEEN(1,3)
+      </td>
+      <td style="vertical-align: top;">Either 1 or 2</td>
+    </tr>
+	    <tr>
+      <td style="vertical-align: top;">4<br>
+      </td>
+      <td style="vertical-align: top;">RANDINTBETWEEN(1,10,5)
+      </td>
+      <td style="vertical-align: top;">4</td>
+    </tr>
+    </tbody>
+</table>
+    
+<BR>
+
+
+
+  
+
+</body></html>

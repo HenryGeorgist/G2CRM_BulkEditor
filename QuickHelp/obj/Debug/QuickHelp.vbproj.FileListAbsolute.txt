@@ -1,0 +1,31 @@
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\bin\Debug\QuickHelp.dll
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\bin\Debug\QuickHelp.pdb
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\bin\Debug\QuickHelp.xml
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\Debug\QuickHelp.vbproj.ResolveComReference.cache
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\Debug\HelpButton.baml
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\Debug\HelpDialog.baml
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\Debug\HelpButton.g.vb
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\Debug\HelpDialog.g.vb
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\Debug\QuickHelp_MarkupCompile.cache
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\Debug\QuickHelp.g.resources
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\Debug\QuickHelp.Resources.resources
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\Debug\QuickHelp.vbproj.GenerateResource.Cache
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\Debug\QuickHelp.dll
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\Debug\QuickHelp.xml
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\QuickHelp\obj\Debug\QuickHelp.pdb
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\bin\Debug\QuickHelp.dll
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\bin\Debug\QuickHelp.pdb
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\bin\Debug\QuickHelp.xml
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\QuickHelp.vbproj.ResolveComReference.cache
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\HelpButton.baml
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\HelpDialog.baml
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\HelpButton.g.vb
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\HelpDialog.g.vb
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\QuickHelp_MarkupCompile.cache
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\QuickHelp.g.resources
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\QuickHelp.Resources.resources
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\QuickHelp.vbproj.GenerateResource.Cache
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\QuickHelp.dll
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\QuickHelp.xml
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\QuickHelp.pdb
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\QuickHelp.vbprojResolveAssemblyReference.cache

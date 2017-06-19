@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>ConvertToShort</title></head><body>
+<h1>ConvertToShort</h1>
+<hr>
+<style>
+h2 {font-family: Arial;
+font-weight: bold;
+color: rgb(51, 102, 255);
+}
+</style>
+
+The <b>ConvertToShort</b> function converts numerical data into the short data type. Shorts are stored using only 2 bytes. This creates less memory consumption, but also limits the range of values that can be stored as a short to -32,768 through 32,767. When converting numbers to the short data type make sure that no values exceed this range or an exception will be thrown.
+
+Numbers with decimal values will have the decimal portion truncated. This means that 2.99 will be converted to 2.<br><br>
+
+<h2>Syntax</h2>
+
+Short(value)<br>
+
+<br>
+<ul>
+
+	<li><span style="font-weight: bold;">value&nbsp;</span> This must be an expression that produces some sort of numerical result.</li>
+</ul>
+<br>
+
+  <h2>Example</h2>
+
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <th style="vertical-align: top; font-weight: bold;">Formula<br>
+      </td>
+      <th style="vertical-align: top; font-weight: bold;">Result<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1<br>
+      </td>
+      <td style="vertical-align: top;">Short(87)</td>
+      <td style="vertical-align: top;">87</td>
+      
+    </tr>
+	  <tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td style="vertical-align: top;">Short(32.89)</td>
+      <td style="vertical-align: top;">32</td>
+      
+    </tr>
+	  <tr>
+      <td style="vertical-align: top;">3<br>
+      </td>
+      <td style="vertical-align: top;">Short(5.5)</td>
+      <td style="vertical-align: top;">5</td>
+      
+    </tr>
+		  <tr>
+      <td style="vertical-align: top;">4<br>
+      </td>
+      <td style="vertical-align: top;">Short(33000)</td>
+      <td style="vertical-align: top;">0     (numbers that are outside the range receive a value of zero)</td>
+      
+    </tr>
+
+
+  </tbody>
+</table>
+  
+<BR>
+
+<br>
+<br>
+
+</body></html>

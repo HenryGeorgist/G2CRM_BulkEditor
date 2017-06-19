@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<HelpDocument width="800" height="600">
+  <Topic name="=" keywords="equal,logical" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser" >EqualsHelp.html</Topic>
+  <Topic name="!=" keywords="Not,NotEqual" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">Not equal.html</Topic>
+  <Topic name="SUBSTRING" keywords="character,text" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">SUBSTRINGHelp.html</Topic>
+  <Topic name="RIGHT" keywords="character,text" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">RIGHTHelp.html</Topic>
+  <Topic name="LEFT" keywords="equal,logical" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">LEFTHelp.html</Topic>
+  <Topic name="CONTAINS" keywords="Contains,logical" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">CONTAINSHelp.html</Topic>
+  <Topic name="INSTRING" keywords="Search,character,index,Value" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser" Images="INSTRINGExample.png,INSTRINGExample2.png,INSTRINGExample3.png,INSTRINGExample4.png">INSTRINGHelp.html</Topic>
+  <Topic name="LEN" keywords="lenght" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">LENHelp.html</Topic>
+  <Topic name="Concatenate" keywords="add,concatenate,append" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">ConcatenateHelp.html</Topic>
+</HelpDocument>

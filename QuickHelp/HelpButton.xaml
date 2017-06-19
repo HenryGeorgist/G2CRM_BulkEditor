@@ -1,0 +1,17 @@
+<UserControl x:Class="HelpButton" Name="HelpButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="20" d:DesignWidth="20">
+    <Grid>
+        <!--<Grid.Resources>
+            <BitmapImage x:Key="BMpHelp" UriSource="/Resources/HelpIcon.bmp"/>
+            <Image x:Key="HelpIcon" Source="{StaticResource BMpHelp}"/>
+        </Grid.Resources>-->
+        <Button x:Name="Button"  Margin="0,0,0,0" Click="Button_Click" Padding="0">
+            <Image Source="pack://application:,,,/QuickHelp;component/Resources/Help.ico"/>
+        </Button>
+    </Grid>
+</UserControl>

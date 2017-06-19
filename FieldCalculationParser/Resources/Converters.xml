@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<HelpDocument title="Conversion tools" description="A series of tools to help convert from one type to another." width="800" height="600">
+  <Topic name="ConvertToString" keywords="character,words" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">ConvertToStringHelp.html</Topic>
+  <Topic name="ConvertToBoolean" keywords="Boolean" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">ConvertToBooleanHelp.html</Topic>
+  <Topic name="ConvertToByte" keywords="bits" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">ConvertToByteHelp.html</Topic>
+  <Topic name="ConvertToDouble" keywords="numbers,decimal" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">ConvertToDoubleHelp.html</Topic>
+  <Topic name="ConvertToInteger" keywords="numbers,integers" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">ConvertToIntHelp.html</Topic>
+  <Topic name="ConvertToShort" keywords="numbers,integers" AssemblyName="FieldCalculationParser" RootNamespace="FieldCalculationParser">ConvertToShortHelp.html</Topic>
+</HelpDocument>
+

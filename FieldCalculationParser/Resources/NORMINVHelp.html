@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Normal Distribution</title>
+
+  
+  
+  <style>
+        body {background-color: White;
+        }
+
+        h2 {font-family: Arial;
+            font-weight: bold;
+            color: rgb(51, 102, 255);
+        }
+
+        a, u {
+            text-decoration: none;
+        }
+
+        .Bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body style="width: 750px;">
+<h1>NormINV Function</h1>
+
+<hr>The NormINV function returns the inverse of the <a href="http://en.wikipedia.org/wiki/Normal_distribution#Cumulative_distribution_function" target="_blank">Normal
+    Distribution Cumulative Distribution Function (CDF)</a> 
+    (See Image1).&nbsp; 
+The Normal Distribution CDF returns the probability of a normally
+distributed value X&#8805;x.&nbsp; The inverse of that would be, for a
+given probability, what is a value X&#8805;x.&nbsp; This Function is useful
+for randomly assigning values that are normally distributed.<br>
+
+<br>
+<br>
+<img src="normalCDF.gif" alt="normalcdf" />
+
+Image 1<br>
+
+<br>
+
+<h2>Syntax</h2>
+
+NORMINV(probability,mean,standard_deviation)<br>
+
+<br>
+
+<ul>
+
+     <li><b>probability</b> is a number that is between zero and 1.</li><br>
+
+     <li><b>mean</b> is the mean of the normal distribution</li><br>
+
+     <li><b>standard_deviation</b> is the stadard deviation of the distribution</li>
+
+<br>
+
+<h3>Restrictions:</h3>
+
+Probability must be less than 1 and greater than 0, if it is not, a
+parse error is raised.<br>
+
+All arguments must be numeric, if they are not, a parse error will be
+raised<br>
+
+The standard deviation cannot be less than or equal to 0, if it is, a
+parse error is raised.<br>
+
+<br>
+
+<h2>Examples</h2>
+
+
+<table style="text-align: center; width: 246px; height: 112px;" border="1" cellpadding="0" cellspacing="0">
+
+  <tbody>
+    <tr>
+      <th>Expression</th>
+      <th>Result</th>
+    </tr>
+    <tr>
+      <td>NormINV(.5,5,10)</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>NormINV(.99,5,10)</td>
+      <td>28.26</td>
+    </tr>
+    <tr>
+      <td>NormINV(.01,5,10)</td>
+      <td>-18.26</td>
+    </tr>
+    <tr>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<h2>Common Use</h2>
+A common use of the expression is to use the Rand() function for the
+probability.&nbsp; When NormINV uses the Rand() function for the
+probability, each row within the column where the expression is used
+randomly assigns a normally distributed value in the result of the
+expression. (i.e. NormINV(rand(),5,10))<br>
+<br>
+<br>
+
+</body></html>

@@ -1,0 +1,3 @@
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\FieldCalculationParser\obj\Debug\FieldCalculationParser.Resources.resources
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\FieldCalculationParser\obj\Debug\FieldCalculationParser.vbproj.GenerateResource.Cache
+C:\Users\Q0HECWPL\Perforce\Consequences\WPL_Consequences_Main\ConsequenceToolLibraries\FieldCalculationParser\obj\Debug\FieldCalculationParser.xml

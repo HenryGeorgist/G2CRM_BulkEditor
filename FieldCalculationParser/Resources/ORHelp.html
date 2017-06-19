@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>OR</title></head><body>
+<h1>OR Function</h1>
+
+<hr></hr>
+<style>
+h2 {font-family: Arial;
+font-weight: bold;
+color: rgb(51, 102, 255);
+}
+</style>
+
+Returns TRUE if any argument is TRUE; returns FALSE if all arguments are FALSE.<br><br>
+
+One common use for the <b>OR</b> function is to expand the 
+usefulness of other functions that perform logical tests. For example, the <span style="font-weight: bold;">IF</span> function performs a logical test and then returns one value 
+if the test evaluates to TRUE and another value if the test evaluates to FALSE. 
+By using the <b>OR</b> function as the 
+<span style="font-style: italic;">logical_test</span> argument of the IF function, you can 
+test many different conditions instead of just one.<br>
+<br>
+<h2>Syntax</h2>
+<span style="font-weight: bold;">OR</span>(logical1,logical2,...)<br><br>
+
+<ul>
+<li><span style="font-weight: bold;">logical1,logical2,...</span> are 1 to 255 conditions you want to test that can be either TRUE or FALSE.</li>
+<li>There are no spaces before or after the commas.</li>
+</ul>
+
+<br>
+<h2>Example</h2>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top; font-weight: bold;">Formula<br>
+      </td>
+      <td style="vertical-align: top;font-weight: bold;">Description<br>
+      </td>
+	<td style="vertical-align: top;font-weight: bold">Result<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1<br>
+      </td>
+      <td style="vertical-align: top;">OR(TRUE)</td>
+      <td style="vertical-align: top;">One argument is TRUE</td>
+	<td style="vertical-align: top;">TRUE<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td style="vertical-align: top;">OR(1+1=1,2+2=5)</td>
+      <td style="vertical-align: top;">All arguments evaluate to FALSE</td>
+	<td style="vertical-align: top;">FALSE<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">3<br>
+      </td>
+      <td style="vertical-align: top;">OR(TRUE,FALSE,TRUE)</td>
+      <td style="vertical-align: top;">At least one argument is TRUE</td>
+	<td style="vertical-align: top;">TRUE<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<h2>Example 2</h2>
+<br>
+Create a new column that indicates if a row contains a <b>BldgType</b> of "Masonry" <b>OR</b> a <b>Found_Ht</b> of 3.
+<br>
+<br>
+<img src="ORExample.png" alt="OR Example">
+
+<br>
+<br>
+<img src="ORExample2.png" alt="OR Example2">
+<br>
+<br>
+This will result in a new field being created called <b>newField</b>. This column will contain <b>True</b> if the <b>BldgType</b> is "Masonry" <b>OR</b> the <b>Found_Ht</b> is 3, and <b>False</b> if neither are true.
+<br>
+<br>
+Keep in mind:
+<ul>
+    <li>Field names are enclosed in square brackets.</li>
+    <li>Text values are enclosed in quotation marks.</li>
+    <li>There are no spaces.</li>
+</ul>
+<br>
+<img src="ORExample3.png" alt="OR Example3">
+
+
+
+
+</body></html>

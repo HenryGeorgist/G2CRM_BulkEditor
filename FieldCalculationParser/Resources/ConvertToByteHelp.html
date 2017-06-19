@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>ConvertToByte</title></head><body>
+<h1>ConvertToByte</h1>
+<hr></hr>
+<style>
+h2 {font-family: Arial;
+font-weight: bold;
+color: rgb(51, 102, 255);
+}
+</style>
+
+Convert to byte stores numeric values with 8 bits. This is the optimal storage size for <b>integers</b> ranging from 0 to 255. Numbers with decimal values are converted to zero. If there is a chance that the data will be greater than 255 or less than 0 or have decimal values use a different data type.<br>
+<h2>Syntax</h2>
+Byte(value)<br>
+<br>
+
+<ul>
+
+	<li><span style="font-weight: bold;">value</span> This must be an expression that produces a numerical result ranging from 0 to 255.</li>
+</ul>
+<br>
+
+<h2>Example</h2>
+
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <th style="vertical-align: top; font-weight: bold;">Formula<br>
+      </td>
+      <th style="vertical-align: top; font-weight: bold;">Result<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1<br>
+      </td>
+      <td style="vertical-align: top;">Byte(109)</td>
+      <td style="vertical-align: top;">109</td>
+      
+    </tr>
+	    <tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td style="vertical-align: top;">Byte(5)</td>
+      <td style="vertical-align: top;">5</td>
+      
+    </tr>
+	    <tr>
+      <td style="vertical-align: top;">3<br>
+      </td>
+      <td style="vertical-align: top;">Byte(300)</td>
+      <td style="vertical-align: top;">0  The result is zero (0) if the value is outside the range (0-255).</td>
+      
+    </tr>
+	    <tr>
+      <td style="vertical-align: top;">4<br>
+      </td>
+      <td style="vertical-align: top;">Byte(6.3)</td>
+      <td style="vertical-align: top;">0  The result is zero (0) if the number has decimal places.</td>
+      
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+<br>
+<br>
+
+
+
+
+
+</body></html>
