@@ -141,6 +141,26 @@ namespace Database.Reader
             }
             return row.ToArray();
         }
+        public object[] Column(string columnName)
+        {
+            List<object> column = new List<object>();
+            int idx = 0;
+            using (System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand("SELECT [" + columnName + "] FROM [" + _tableName + "]", _connection))
+            {
+                using (System.Data.SQLite.SQLiteDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        idx = 0;
+                        while (reader.Read())
+                        {
+                            column.Add(reader[columnName]);
+                        }
+                    }
+                }
+            }
+            return column.ToArray();
+        }
         public string[] ColumnNames()
         {
             bool wasopen = _isOpen;

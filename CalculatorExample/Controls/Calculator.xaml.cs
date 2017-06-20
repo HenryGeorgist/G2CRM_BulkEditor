@@ -21,15 +21,20 @@ namespace CalculatorExample.Controls
     public partial class Calculator : Window, System.ComponentModel.INotifyPropertyChanged
     {
         private List<string> _ParseErrors;
-        //private int _CaratIndex = 0;
         private string _firstParts;
         private string _secondParts;
-        //private string _selectedText;
         private List<string> _headers;
         private string _filePath;
         private string _tableName;
         private string _columnName;
         private string _columnType;
+        private bool _AllowSelectionOption = false;
+        private bool _UseSelection = false;
+        private IEnumerable<long> _selectedKeys;
+        private string _selectionColumnName;
+        private long _totalRows;
+        private object[] _FirstRow;
+        private object[] _FirstSelectedRow;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string ColumnName
@@ -41,6 +46,44 @@ namespace CalculatorExample.Controls
         {
             get { return _columnType; }
             set { _columnType = value; NotifyPropertyChanged(); }//notify property changed.
+        }
+
+        public bool AllowSelectionOption
+        {
+            get { return _AllowSelectionOption; }
+            set { _AllowSelectionOption = value; NotifyPropertyChanged(); NotifyPropertyChanged(nameof(SelectedCount)); }
+        }
+        public bool UseSelection
+        {
+            get { return _UseSelection; }
+            set
+            {
+                _UseSelection = value;
+                NotifyPropertyChanged();
+                //update which selected row and parse.
+                if (_UseSelection)//use property
+                {
+                    TestWindow.SetDataForFirstRow = _FirstSelectedRow;
+                }
+                else
+                {
+                    TestWindow.SetDataForFirstRow = _FirstRow;
+                }
+                TestWindow.Parse();
+                //setcolsforfirstrow
+                //parse
+            }
+        }
+        public string SelectedCount
+        {
+            get
+            {
+                if (_selectedKeys != null)
+                {
+                    return "Use Selection (" + _selectedKeys.Count() + " of " + _totalRows + ")";
+                }
+                return "";
+            }
         }
         public Calculator()
         {
@@ -93,13 +136,16 @@ namespace CalculatorExample.Controls
             }
 
         }
-        public Calculator(string filePath, string tablename, string columnName)
+        public Calculator(string filePath, string tablename, string operatingColumnName, IEnumerable<long> uniqueRowIDs = null, string uniqueColumnName = "")
         {
 
             InitializeComponent();
             _filePath = filePath;
             _tableName = tablename;
-            ColumnName = columnName;
+            _selectedKeys = uniqueRowIDs;
+            _selectionColumnName = uniqueColumnName;
+            ColumnName = operatingColumnName;
+
             //handle events from the various specialized components
             TestWindow.ErrorsFound += ErrorsFound;
             TestWindow.ParseSuccess += DisplayResult;
@@ -116,9 +162,19 @@ namespace CalculatorExample.Controls
             TestWindow.SetHeaderTypes = headertypes;
             //Add the first row of data to the database as an object array so that the result will show the result for the first row.
             reader.Open();
-            object[] exampledata = reader.Row(0);
+            _FirstRow = reader.Row(0);
+            if (_selectedKeys != null)
+            {
+                if (_selectedKeys.Count() > 0)
+                {
+                    AllowSelectionOption = true;
+                    object[] tmp = reader.Column(_selectionColumnName);
+                    _FirstSelectedRow = reader.Row(Array.IndexOf(tmp, _selectedKeys.First()));
+                }
+            }
+            _totalRows = reader.RowCount();
             reader.Close();
-            TestWindow.SetDataForFirstRow = exampledata;
+            TestWindow.SetDataForFirstRow = _FirstRow;
             //To create a selection, set the output type to boolean...
             switch (headertypes[_headers.IndexOf(_columnName)].Name.ToString().ToLower())
             {
@@ -238,17 +294,61 @@ namespace CalculatorExample.Controls
                 Int64 count = reader.RowCount();
 
                 List<object> output = new List<object>();
+
                 reader.Open();
-                for (Int64 i = 0; i < count; i++)
+                //needs to operate on selected rows or not.
+
+                //ifselected rows, update the entire column, but put the original value in for non selected rows.
+                if (UseSelection)
                 {
-                    FieldCalculationParser.ParseTreeNode.RowOrCellNum = (int)i;//whatever.
-                    if (uniqueheaders.Count() > 0)
+                    int currentSelectedRow = 0;
+                    int selectionIndex = 0;
+                    object[] tmp = reader.Column(_selectionColumnName);
+                    object[] original = reader.Column(_columnName);
+                    List<int> items = new List<int>();
+                    foreach (long uid in _selectedKeys)
                     {
-                        row = reader.Row((int)i, uniqueheaders);
-                        tree.Update(ref row);
+                        items.Add(Array.IndexOf(tmp, uid));
                     }
-                    output.Add(tree.Evaluate().GetResult);
+                    currentSelectedRow = items[selectionIndex];
+                    for (Int64 i = 0; i < count; i++)
+                    {
+                        if (i == currentSelectedRow)
+                        {
+                            FieldCalculationParser.ParseTreeNode.RowOrCellNum = (int)i;//whatever.
+                            if (uniqueheaders.Count() > 0)
+                            {
+                                row = reader.Row((int)i, uniqueheaders);
+                                tree.Update(ref row);
+                            }
+                            output.Add(tree.Evaluate().GetResult);
+                            selectionIndex++;
+                            if (!(items.Count > selectionIndex))
+                            {
+                                currentSelectedRow = items[selectionIndex];
+                            }
+                        }
+                        else
+                        {
+                            output.Add(original[i]);
+                        }
+
+                    }
                 }
+                else
+                {
+                    for (Int64 i = 0; i < count; i++)
+                    {
+                        FieldCalculationParser.ParseTreeNode.RowOrCellNum = (int)i;//whatever.
+                        if (uniqueheaders.Count() > 0)
+                        {
+                            row = reader.Row((int)i, uniqueheaders);
+                            tree.Update(ref row);
+                        }
+                        output.Add(tree.Evaluate().GetResult);
+                    }
+                }
+
                 reader.Close();
                 if (tree.GetComputeErrors.Count > 1)
                 {
@@ -266,6 +366,7 @@ namespace CalculatorExample.Controls
                 {
                     Database.Writer.SqLiteWriter writer = new Database.Writer.SqLiteWriter(_filePath, _tableName);
                     writer.UpdateColumn(_columnName, output.ToArray());
+
                 }
             }
         }

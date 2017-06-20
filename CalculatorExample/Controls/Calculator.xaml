@@ -8,6 +8,9 @@
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         mc:Ignorable="d"
         Title="Calculator" Height="450" Width="525">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Window.Resources>
     <Grid Name ="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -25,7 +28,7 @@
                 <Label Content="{Binding ColumnName}" ToolTip="{Binding ColumnType}"/>
                 <Label Content="="/>
             </StackPanel>
-            
+            <CheckBox Grid.Column="1" VerticalAlignment="Center" Content="{Binding SelectedCount}" IsChecked="{Binding UseSelection}" Visibility="{Binding AllowSelectionOption, Converter={StaticResource BoolToVis}}"/>
             <!--<StackPanel Margin="5,0,0,0" Orientation="Horizontal" Grid.Column="1">
                 <Button Name="Plus" Click="Plus_Click" Content="+" Height="20" Width="20" Margin="5,0,0,0"/>
                 <Button Name="Minus" Click="Minus_Click" Content="-" Height="20" Width="20" Margin="5,0,0,0"/>
