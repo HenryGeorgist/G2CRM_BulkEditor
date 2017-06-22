@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\App.xaml
-5901853378
+5359600993
 
-18-1582876475
+18-1149280463
 17617281766
-Controls\Calculator.xaml;Controls\ErrorWindow.xaml;Controls\FilterCalculaor.xaml;Controls\TextBoxFileBrowser.xaml;MainWindow.xaml;
+Controls\Calculator.xaml;Controls\ErrorWindow.xaml;Controls\AdvancedFilter.xaml;Controls\TextBoxFileBrowser.xaml;MainWindow.xaml;
 
 True
 

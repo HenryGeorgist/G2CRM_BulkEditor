@@ -68,8 +68,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BaseVM.cs" />
-    <Compile Include="Controls\FilterCalculaor.xaml.cs">
-      <DependentUpon>FilterCalculaor.xaml</DependentUpon>
+    <Compile Include="Controls\AdvancedFilter.xaml.cs">
+      <DependentUpon>AdvancedFilter.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel.cs" />
     <Page Include="Controls\Calculator.xaml">
@@ -80,7 +80,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\FilterCalculaor.xaml">
+    <Page Include="Controls\AdvancedFilter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

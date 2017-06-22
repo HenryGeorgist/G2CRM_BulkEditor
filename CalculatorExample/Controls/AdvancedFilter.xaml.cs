@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -10,9 +10,9 @@ using System.Windows.Input;
 namespace CalculatorExample.Controls
 {
     /// <summary>
-    /// Interaction logic for Calculator.xaml
+    /// Interaction logic for AdvancedFilter.xaml
     /// </summary>
-    public partial class Calculator : Window, System.ComponentModel.INotifyPropertyChanged
+    public partial class AdvancedFilter : Window, System.ComponentModel.INotifyPropertyChanged
     {
         private List<string> _ParseErrors;
         private string _firstParts;
@@ -20,7 +20,6 @@ namespace CalculatorExample.Controls
         private List<string> _headers;
         private string _filePath;
         private string _tableName;
-        private string _columnName;
         private string _columnType;
         private bool _AllowSelectionOption = false;
         private bool _UseSelection = false;
@@ -31,15 +30,10 @@ namespace CalculatorExample.Controls
         private object[] _FirstSelectedRow;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string ColumnName
-        {
-            get { return _columnName; }
-            set { _columnName = value; NotifyPropertyChanged(); }//notify property changed.
-        }
         public string ColumnType
         {
             get { return _columnType; }
-            set { _columnType = value; NotifyPropertyChanged(); }//notify property changed.
+            set { _columnType = value; NotifyPropertyChanged(); }
         }
 
         public bool AllowSelectionOption
@@ -74,71 +68,30 @@ namespace CalculatorExample.Controls
             {
                 if (_selectedKeys != null)
                 {
-                    return "Use Selection (" + _selectedKeys.Count() + " of " + _totalRows + ")";
+                    return "Select from current Selection (" + _selectedKeys.Count() + " of " + _totalRows + ")";
                 }
                 return "";
             }
         }
-        public Calculator()
+        public IEnumerable<long> SelectedKeys
         {
-
-            InitializeComponent();
-            //handle events from the various specialized components
-            TestWindow.ErrorsFound += ErrorsFound;
-            TestWindow.ParseSuccess += DisplayResult;
-            AvailableFunctions.TextToAdd += TextToInsert;
-            //assign the proper grid alignment to the textblock that is behaving like a tooltip.
-            Grid.SetRow(TestWindow.TextBlock, 3);
-            MainGrid.Children.Add(TestWindow.TextBlock);
-            //Add the names of the columns to populate the available columns array. (this is currently handled
-            _headers = new List<string>();
-            _headers.Add("Column A");
-            _headers.Add("Column B");
-            _headers.Add("Column C");
-            _headers.Add("Column D");
-            _headers.Add("Column E");
-            TestWindow.SetHeaders = _headers;
-            //Add the types of the columns to enforce type strictness.
-            List<Type> headertypes = new List<Type>();
-            headertypes.Add(typeof(Int32));
-            headertypes.Add(typeof(string));
-            headertypes.Add(typeof(bool));
-            headertypes.Add(typeof(Single));
-            headertypes.Add(typeof(Int32));
-            TestWindow.SetHeaderTypes = headertypes;
-            //Add the first row of data to the database as an object array so that the result will show the result for the first row.
-            object[] exampledata = new object[5];
-            exampledata[0] = 1;
-            exampledata[1] = "This is a string";
-            exampledata[2] = true;
-            exampledata[3] = 2.2;
-            exampledata[4] = -3;
-            TestWindow.SetDataForFirstRow = exampledata;
-            //To create a selection, set the output type to boolean... otherwize it will default to undefined which allows any output.
-            //TestWindow.SetOutputType = FieldCalculationParser.TypeEnum.Bool;
-            //To operate as an editor for a specific column, pass the column type to the expression window, and the tree will only produce that output type.
-
-            //Add the headers to the avaialblefields treeview. (i am adding type as a tooltip for reference)
-            for (int i = 0; i < _headers.Count(); i++)
+            get { return _selectedKeys; }
+            set
             {
-                System.Windows.Controls.TreeViewItem tvi = new TreeViewItem();
-                tvi.Header = _headers[i];
-                System.Windows.Controls.ToolTip t = new System.Windows.Controls.ToolTip();
-                t.Content = headertypes[i].ToString();
-                tvi.ToolTip = t;
-                AvailableFields.Items.Add(tvi);
+                _selectedKeys = value;
+                NotifyPropertyChanged();
+                NotifyPropertyChanged(nameof(SelectedCount));
             }
-
         }
-        public Calculator(string filePath, string tablename, string operatingColumnName, IEnumerable<long> uniqueRowIDs = null, string uniqueColumnName = "")
+        public bool FilterWasSuccessful { get; set; } = false;
+        public AdvancedFilter(string filePath, string tablename, IEnumerable<long> uniqueRowIDs = null, string uniqueColumnName = "")
         {
 
             InitializeComponent();
             _filePath = filePath;
             _tableName = tablename;
-            _selectedKeys = uniqueRowIDs;
+            SelectedKeys = uniqueRowIDs;
             _selectionColumnName = uniqueColumnName;
-            ColumnName = operatingColumnName;
 
             //handle events from the various specialized components
             TestWindow.ErrorsFound += ErrorsFound;
@@ -170,31 +123,8 @@ namespace CalculatorExample.Controls
             reader.Close();
             TestWindow.SetDataForFirstRow = _FirstRow;
             //To create a selection, set the output type to boolean...
-            switch (headertypes[_headers.IndexOf(_columnName)].Name.ToString().ToLower())
-            {
-                case "double":
-                case "single":
-                case "int":
-                case "int16":
-                case "int32":
-                case "int64":
-                    TestWindow.SetOutputType = FieldCalculationParser.TypeEnum.Num;//could set to decimal and int if you want more specification...
-                    ColumnType = "Numeric";
-                    break;
-                case "bool":
-                    TestWindow.SetOutputType = FieldCalculationParser.TypeEnum.Bool;
-                    ColumnType = "True or False";
-                    break;
-                case "string":
-                    TestWindow.SetOutputType = FieldCalculationParser.TypeEnum.Str;
-                    ColumnType = "Text";
-                    break;
-                default:
-                    TestWindow.SetOutputType = FieldCalculationParser.TypeEnum.UnDeclared;
-                    ColumnType = "No output restrictions";
-                    break;
-            }
-
+            TestWindow.SetOutputType = FieldCalculationParser.TypeEnum.Bool;
+            ColumnType = "True or False";
             //Add the headers to the avaialblefields treeview. (i am adding type as a tooltip for reference)
             for (int i = 0; i < _headers.Count(); i++)
             {
@@ -282,55 +212,42 @@ namespace CalculatorExample.Controls
 
                 Database.Reader.SqLiteReader reader = new Database.Reader.SqLiteReader(_filePath, _tableName);
                 object[] row;
-                List<string> usedheaders = tree.GetHeaderNames();
-                string[] uniqueheaders = getUniqueHeaders(usedheaders);
-                tree.SetColNums(uniqueheaders.ToList());
+                List<string> usedheaders = tree.GetHeaderNames();//will include duplicates
+                string[] uniqueheaders = getUniqueHeaders(usedheaders);//removes duplicates
+                tree.SetColNums(uniqueheaders.ToList());//lets the tree know what index in the array of object to look for for each header.
                 Int64 count = reader.RowCount();
 
-                List<object> output = new List<object>();
+                List<long> output = new List<long>();
 
                 reader.Open();
                 //needs to operate on selected rows or not.
 
-                //ifselected rows, update the entire column, but put the original value in for non selected rows.
+                //ifselected rows, only iterate on the current selection.
                 if (UseSelection)
                 {
-                    int currentSelectedRow = 0;
-                    int selectionIndex = 0;
                     object[] tmp = reader.Column(_selectionColumnName);
-                    object[] original = reader.Column(_columnName);
+
                     List<int> items = new List<int>();
+                    int idx = 0;
                     foreach (long uid in _selectedKeys)
                     {
-                        items.Add(Array.IndexOf(tmp, uid));
-                    }
-                    currentSelectedRow = items[selectionIndex];
-                    for (Int64 i = 0; i < count; i++)
-                    {
-                        if (i == currentSelectedRow)
+                        idx = Array.IndexOf(tmp, uid);
+                        FieldCalculationParser.ParseTreeNode.RowOrCellNum = idx;
+                        if (uniqueheaders.Count() > 0)
                         {
-                            FieldCalculationParser.ParseTreeNode.RowOrCellNum = (int)i;//whatever.
-                            if (uniqueheaders.Count() > 0)
-                            {
-                                row = reader.Row((int)i, uniqueheaders);
-                                tree.Update(ref row);
-                            }
-                            output.Add(tree.Evaluate().GetResult);
-                            selectionIndex++;
-                            if (!(items.Count > selectionIndex))
-                            {
-                                currentSelectedRow = items[selectionIndex];
-                            }
+                            row = reader.Row(idx, uniqueheaders);
+                            tree.Update(ref row);
                         }
-                        else
+                        if ((bool)tree.Evaluate().GetResult)
                         {
-                            output.Add(original[i]);
+                            //select it!
+                            output.Add(uid);
                         }
-
                     }
                 }
                 else
                 {
+                    object[] uniqueIDS = reader.Column(_selectionColumnName);
                     for (Int64 i = 0; i < count; i++)
                     {
                         FieldCalculationParser.ParseTreeNode.RowOrCellNum = (int)i;//whatever.
@@ -339,14 +256,18 @@ namespace CalculatorExample.Controls
                             row = reader.Row((int)i, uniqueheaders);
                             tree.Update(ref row);
                         }
-                        output.Add(tree.Evaluate().GetResult);
+                        if ((bool)tree.Evaluate().GetResult)
+                        {
+                            //select it!
+                            output.Add((long)uniqueIDS[i]);
+                        }
                     }
                 }
 
                 reader.Close();
                 if (tree.GetComputeErrors.Count > 1)
                 {
-                    //do not write to file.
+                    //do not update selection
                     StringBuilder s = new StringBuilder();
                     foreach (string o in tree.GetComputeErrors)
                     {
@@ -358,9 +279,10 @@ namespace CalculatorExample.Controls
                 }
                 else
                 {
-                    Database.Writer.SqLiteWriter writer = new Database.Writer.SqLiteWriter(_filePath, _tableName);
-                    writer.UpdateColumn(_columnName, output.ToArray());
-
+                    //update _selectedKeys;
+                    SelectedKeys = output;
+                    //raise event?
+                    FilterWasSuccessful = true;
                 }
             }
         }

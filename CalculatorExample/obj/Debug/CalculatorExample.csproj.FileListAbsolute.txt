@@ -31,5 +31,5 @@ C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Calcul
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\obj\Debug\Controls\Calculator.baml
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\obj\Debug\Controls\TextBoxFileBrowser.g.cs
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\obj\Debug\Controls\TextBoxFileBrowser.baml
-C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\obj\Debug\Controls\FilterCalculaor.g.cs
-C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\obj\Debug\Controls\FilterCalculaor.baml
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\obj\Debug\Controls\AdvancedFilter.g.cs
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorExample\obj\Debug\Controls\AdvancedFilter.baml
