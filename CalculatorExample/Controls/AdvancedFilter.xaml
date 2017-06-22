@@ -25,7 +25,7 @@
             </Grid.ColumnDefinitions>
             <StackPanel Margin="5,0,0,0" Orientation="Horizontal" Grid.Column="0">
                 <Label Content="Select from"/>
-                <Label Content="{Binding ColumnName}" ToolTip="{Binding ColumnType}"/>
+                <Label Content="{Binding TableName}" ToolTip="{Binding ColumnType}"/>
                 <Label Content="where:"/>
             </StackPanel>
             <CheckBox Grid.Column="1" VerticalAlignment="Center" Content="{Binding SelectedCount}" IsChecked="{Binding UseSelection}" Visibility="{Binding AllowSelectionOption, Converter={StaticResource BoolToVis}}"/>

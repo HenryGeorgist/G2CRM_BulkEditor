@@ -35,7 +35,11 @@ namespace CalculatorExample.Controls
             get { return _columnType; }
             set { _columnType = value; NotifyPropertyChanged(); }
         }
-
+        public string TableName
+        {
+            get { return _tableName; }
+            set { _tableName = value;  NotifyPropertyChanged(); }
+        }
         public bool AllowSelectionOption
         {
             get { return _AllowSelectionOption; }
@@ -89,7 +93,7 @@ namespace CalculatorExample.Controls
 
             InitializeComponent();
             _filePath = filePath;
-            _tableName = tablename;
+            TableName = tablename;
             SelectedKeys = uniqueRowIDs;
             _selectionColumnName = uniqueColumnName;
 
