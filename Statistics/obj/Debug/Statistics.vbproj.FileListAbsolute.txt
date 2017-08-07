@@ -6,4 +6,3 @@ C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Statis
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Statistics\obj\Debug\Statistics.dll
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Statistics\obj\Debug\Statistics.xml
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Statistics\obj\Debug\Statistics.pdb
-C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Statistics\obj\Debug\Statistics.vbprojResolveAssemblyReference.cache

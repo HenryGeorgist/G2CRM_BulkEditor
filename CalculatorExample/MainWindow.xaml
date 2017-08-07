@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculatorExample"
-        xmlns:controls="clr-namespace:CalculatorExample.Controls"
+        xmlns:controls="clr-namespace:CalculatorView.Controls;assembly=CalculatorView"
         mc:Ignorable="d"
         DataContext=""
         Title="MainWindow" Height="200" Width="525">

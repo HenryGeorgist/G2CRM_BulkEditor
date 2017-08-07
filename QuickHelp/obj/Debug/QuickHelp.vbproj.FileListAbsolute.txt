@@ -28,4 +28,3 @@ C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickH
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\QuickHelp.dll
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\QuickHelp.xml
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\QuickHelp.pdb
-C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\QuickHelp\obj\Debug\QuickHelp.vbprojResolveAssemblyReference.cache

@@ -18,7 +18,7 @@ InitializeComponent
 </member>
 <member name="T:QuickHelp.HelpDialog">
 <summary>
-helpdialog
+HelpDialog
 </summary>
 </member>
 <member name="M:QuickHelp.HelpDialog.InitializeComponent">

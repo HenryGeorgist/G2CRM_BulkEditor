@@ -1,0 +1,17 @@
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\CalculatorView.csprojResolveAssemblyReference.cache
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Output\Debug\CalculatorView.dll
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Output\Debug\CalculatorView.pdb
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\Controls\AdvancedFilter.g.cs
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\Controls\Calculator.g.cs
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\Controls\ErrorWindow.g.cs
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\Controls\TextBoxFileBrowser.g.cs
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\CalculatorView_MarkupCompile.cache
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\CalculatorView_MarkupCompile.lref
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\Controls\AdvancedFilter.baml
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\Controls\Calculator.baml
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\Controls\ErrorWindow.baml
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\Controls\TextBoxFileBrowser.baml
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\CalculatorView.g.resources
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\CalculatorView.dll
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\CalculatorView.pdb

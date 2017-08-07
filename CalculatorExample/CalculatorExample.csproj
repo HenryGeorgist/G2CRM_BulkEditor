@@ -9,18 +9,19 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CalculatorExample</RootNamespace>
     <AssemblyName>CalculatorExample</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Output\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -35,12 +36,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Database">
-      <HintPath>..\Database\bin\Debug\Database.dll</HintPath>
-    </Reference>
-    <Reference Include="ExpressionBuilder">
-      <HintPath>..\ExpressionBuilder\bin\Debug\ExpressionBuilder.dll</HintPath>
-    </Reference>
     <Reference Include="FieldCalculationParser">
       <HintPath>..\Output\Debug\FieldCalculationParser.dll</HintPath>
     </Reference>
@@ -68,26 +63,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BaseVM.cs" />
-    <Compile Include="Controls\AdvancedFilter.xaml.cs">
-      <DependentUpon>AdvancedFilter.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel.cs" />
-    <Page Include="Controls\Calculator.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\ErrorWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\AdvancedFilter.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\TextBoxFileBrowser.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -95,18 +71,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Controls\AvailableFunctionsTreeView.cs" />
-    <Compile Include="Controls\Calculator.xaml.cs">
-      <DependentUpon>Calculator.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ErrorWindow.xaml.cs">
-      <DependentUpon>ErrorWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ExpressionTextBox.cs" />
-    <Compile Include="Controls\FCTreeItem.cs" />
-    <Compile Include="Controls\TextBoxFileBrowser.xaml.cs">
-      <DependentUpon>TextBoxFileBrowser.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -139,6 +103,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CalculatorView\CalculatorView.csproj">
+      <Project>{92768751-6605-45bb-9bb5-a200b616416d}</Project>
+      <Name>CalculatorView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Database\Database.csproj">
+      <Project>{d784bc28-416a-4a73-904b-d052912208c1}</Project>
+      <Name>Database</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
