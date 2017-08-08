@@ -49,9 +49,6 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Statistics">
-      <HintPath>..\..\Statistics\Statistics\bin\Debug\Statistics.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -258,6 +255,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\RANDINTBETWEEN.html" />
     <EmbeddedResource Include="Resources\TRIINV.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Statistics\Statistics.vbproj">
+      <Project>{3c63c548-bb25-4b8d-857e-582b32b31c92}</Project>
+      <Name>Statistics</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
