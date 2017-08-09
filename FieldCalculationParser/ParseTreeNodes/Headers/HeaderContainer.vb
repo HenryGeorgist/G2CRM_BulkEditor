@@ -16,6 +16,10 @@ Public Class HeaderContainer
                 _type = TypeEnum.Dub
             Case GetType(Single)
                 _type = TypeEnum.Sng
+            Case GetType(Long)
+                _type = TypeEnum.Int
+            Case GetType(Int64)
+                _type = TypeEnum.Int
             Case GetType(Int32)
                 _type = TypeEnum.Int
             Case GetType(Int16)

@@ -37,7 +37,11 @@ namespace CalculatorExample
                 {
                     if (CMBColumnNames.SelectedIndex >= 0)
                     {
-                        CalculatorView.Controls.Calculator calculator = new CalculatorView.Controls.Calculator(thevm.FilePath, (string)CMBTableNames.SelectedItem, (string)CMBColumnNames.SelectedItem);
+                        IEnumerable<long> result = null;
+                        CalculatorView.Controls.AdvancedFilter calculator = new CalculatorView.Controls.AdvancedFilter(thevm.FilePath, (string)CMBTableNames.SelectedItem, (string)CMBColumnNames.SelectedItem, result);
+                        calculator.Closed += (sender2, args) => {
+                            var x = (sender2 as CalculatorView.Controls.AdvancedFilter).SelectedKeys;
+                        };
                         calculator.ShowDialog();
                     }
                     

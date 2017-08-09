@@ -46,7 +46,6 @@
             <CheckBox Name="IsCaseSensitive" Content="Match Case" HorizontalAlignment="Right" Margin="3" Grid.Row="4" VerticalAlignment="Center" IsChecked="True" Unchecked="IsCaseSensitive_Unchecked" Checked="IsCaseSensitive_Checked"/>
             <Button Name="CmdErrorLog" Content="Error Log" HorizontalAlignment="Right" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="75" Click="CmdErrorLog_Click"/>
             <Button Name="CmdExecute" Content="Execute" HorizontalAlignment="Right" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="75" Click="CmdExecute_Click"/>
-            <Button Name="CmdClose" Content="Close" HorizontalAlignment="Right" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="75" Click="CmdClose_Click"/>
         </StackPanel>
     </Grid>
 </Window>

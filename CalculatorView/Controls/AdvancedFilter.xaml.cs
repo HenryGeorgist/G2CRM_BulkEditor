@@ -287,6 +287,7 @@ namespace CalculatorView.Controls
                     SelectedKeys = output;
                     //raise event?
                     FilterWasSuccessful = true;
+                    Close();
                 }
             }
         }
@@ -301,10 +302,6 @@ namespace CalculatorView.Controls
                 }
             }
             return uniques.ToArray();
-        }
-        private void CmdClose_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
 
         private void AvailableFields_MouseDoubleClick(object sender, MouseButtonEventArgs e)

@@ -360,7 +360,7 @@ namespace CalculatorView.Controls
                 {
                     Database.Writer.SqLiteWriter writer = new Database.Writer.SqLiteWriter(_filePath, _tableName);
                     writer.UpdateColumn(_columnName, output.ToArray());
-
+                    Close();
                 }
             }
         }
@@ -375,10 +375,6 @@ namespace CalculatorView.Controls
                 }
             }
             return uniques.ToArray();
-        }
-        private void CmdClose_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
 
         private void AvailableFields_MouseDoubleClick(object sender, MouseButtonEventArgs e)
