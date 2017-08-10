@@ -124,6 +124,7 @@ namespace CalculatorView.Controls
                 }
             }
             _totalRows = reader.RowCount();
+            NotifyPropertyChanged(nameof(SelectedCount));
             reader.Close();
             TestWindow.SetDataForFirstRow = _FirstRow;
             //To create a selection, set the output type to boolean...
