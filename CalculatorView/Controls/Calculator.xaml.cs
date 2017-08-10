@@ -296,8 +296,6 @@ namespace CalculatorView.Controls
                 //ifselected rows, update the entire column, but put the original value in for non selected rows.
                 if (UseSelection)
                 {
-                    int currentSelectedRow = 0;
-                    int selectionIndex = 0;
                     object[] tmp = reader.Column(_selectionColumnName);
                     object[] original = reader.Column(_columnName);
                     List<int> items = new List<int>();
@@ -305,10 +303,9 @@ namespace CalculatorView.Controls
                     {
                         items.Add(Array.IndexOf(tmp, uid));
                     }
-                    currentSelectedRow = items[selectionIndex];
-                    for (Int64 i = 0; i < count; i++)
+                    for (int i = 0; i < count; i++)
                     {
-                        if (i == currentSelectedRow)
+                        if (items.Contains(i))
                         {
                             FieldCalculationParser.ParseTreeNode.RowOrCellNum = (int)i;//whatever.
                             if (uniqueheaders.Count() > 0)
@@ -317,11 +314,6 @@ namespace CalculatorView.Controls
                                 tree.Update(ref row);
                             }
                             output.Add(tree.Evaluate().GetResult);
-                            selectionIndex++;
-                            if (!(items.Count > selectionIndex))
-                            {
-                                currentSelectedRow = items[selectionIndex];
-                            }
                         }
                         else
                         {

@@ -37,10 +37,14 @@ namespace CalculatorExample
                 {
                     if (CMBColumnNames.SelectedIndex >= 0)
                     {
-                        IEnumerable<long> result = null;
-                        CalculatorView.Controls.AdvancedFilter calculator = new CalculatorView.Controls.AdvancedFilter(thevm.FilePath, (string)CMBTableNames.SelectedItem, (string)CMBColumnNames.SelectedItem, result);
+                        IList<long> rowIds = new List<long>();
+                        rowIds.Add(181);
+                        rowIds.Add(2);
+                        //CalculatorView.Controls.AdvancedFilter calculator = new CalculatorView.Controls.AdvancedFilter(thevm.FilePath, (string)CMBTableNames.SelectedItem, (string)CMBColumnNames.SelectedItem, result);
+                        CalculatorView.Controls.Calculator calculator = new CalculatorView.Controls.Calculator(thevm.FilePath, (string)CMBTableNames.SelectedItem, (string)CMBColumnNames.SelectedItem, rowIds, "StructureAssetID");
                         calculator.Closed += (sender2, args) => {
-                            var x = (sender2 as CalculatorView.Controls.AdvancedFilter).SelectedKeys;
+                            //var x = (sender2 as CalculatorView.Controls.AdvancedFilter).SelectedKeys;
+                            var x = 1;
                         };
                         calculator.ShowDialog();
                     }
