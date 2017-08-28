@@ -1,0 +1,50 @@
+﻿<Window x:Class="CalculatorView.Controls.PreviewChanges"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CalculatorView.Controls"
+             mc:Ignorable="d"
+            Title="{Binding Title}"
+             d:DesignHeight="300" d:DesignWidth="300" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DataGrid ItemsSource="{Binding Items}" AutoGenerateColumns="True" Margin="5" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"/>
+        <!--<ListView ItemsSource="{Binding Items}" Margin="5" ScrollViewer.CanContentScroll="True">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="KeyHeader" Header="{Binding KeyHeader}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Key}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Original">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Original}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="New Value">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding NewValue}" Width="Auto"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Has Changes">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding HasChanges}" Width="100"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>-->
+    </Grid>
+</Window>

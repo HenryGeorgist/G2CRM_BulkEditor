@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-4-791947132
+5-489686891
 
-12-655343568
+15-1199390729
 161881986814
-Controls\AdvancedFilter.xaml;Controls\Calculator.xaml;Controls\ErrorWindow.xaml;Controls\TextBoxFileBrowser.xaml;
+Controls\AdvancedFilter.xaml;Controls\Calculator.xaml;Controls\ErrorWindow.xaml;Controls\PreviewChanges.xaml;Controls\TextBoxFileBrowser.xaml;
 
-True
+False
 

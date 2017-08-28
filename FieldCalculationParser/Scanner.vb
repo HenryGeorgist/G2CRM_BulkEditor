@@ -222,6 +222,7 @@ Public Class Scanner
                 Else
                     s.IsNumerical = True
                 End If
+                s.HasDecimal = True
             End If
             s.Input += c
             c = GetCharacter(sr)

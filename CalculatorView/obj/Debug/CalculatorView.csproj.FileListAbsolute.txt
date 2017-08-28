@@ -15,3 +15,5 @@ C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Calcul
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\CalculatorView.g.resources
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\CalculatorView.dll
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\CalculatorView.pdb
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\Controls\PreviewChanges.g.cs
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\CalculatorView\obj\Debug\Controls\PreviewChanges.baml

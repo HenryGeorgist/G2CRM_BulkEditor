@@ -5,3 +5,4 @@ C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Databa
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Database\obj\Debug\Database.pdb
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Output\Debug\Database.dll
 C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Output\Debug\Database.pdb
+C:\Users\Q0HECWPL\Documents\Visual Studio 2015\Projects\CalculatorExample\Database\obj\Debug\Database.csprojResolveAssemblyReference.cache

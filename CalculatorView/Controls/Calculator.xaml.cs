@@ -130,7 +130,7 @@ namespace CalculatorView.Controls
             }
 
         }
-        public Calculator(string filePath, string tablename, string operatingColumnName, IEnumerable<long> uniqueRowIDs = null, string uniqueColumnName = "")
+        public Calculator(string filePath, string tablename, string operatingColumnName, IEnumerable<long> uniqueRowIDs, string uniqueColumnName)
         {
 
             InitializeComponent();
@@ -206,7 +206,9 @@ namespace CalculatorView.Controls
                 tvi.ToolTip = t;
                 AvailableFields.Items.Add(tvi);
             }
-
+            CmdErrorLog.IsEnabled = false;
+            CmdPreview.IsEnabled = false;
+            CmdExecute.IsEnabled = false;
         }
         private void TextToInsert(string text)
         {
@@ -232,6 +234,7 @@ namespace CalculatorView.Controls
         {
             Result.Content = TestWindow.Result;
             CmdErrorLog.IsEnabled = false;
+            CmdPreview.IsEnabled = true;
             CmdExecute.IsEnabled = true;
         }
 
@@ -243,6 +246,7 @@ namespace CalculatorView.Controls
                 CmdErrorLog.IsEnabled = true;
             }
             CmdExecute.IsEnabled = false;
+            CmdPreview.IsEnabled = false;
             Result.Content = TestWindow.Result;
         }
 
@@ -274,88 +278,10 @@ namespace CalculatorView.Controls
 
         private void CmdExecute_Click(object sender, RoutedEventArgs e)
         {
-            //this is where you would get the parse tree from the expressionwindow, and then execute the tree for each row.
-            FieldCalculationParser.ParseTreeNode tree = TestWindow.GetTree;
-            FieldCalculationParser.ParseTreeNode.Initialize();//clear all errors.
-
-            if (tree != null)
-            {
-
-                Database.Reader.SqLiteReader reader = new Database.Reader.SqLiteReader(_filePath, _tableName);
-                object[] row;
-                List<string> usedheaders = tree.GetHeaderNames();
-                string[] uniqueheaders = getUniqueHeaders(usedheaders);
-                tree.SetColNums(uniqueheaders.ToList());
-                Int64 count = reader.RowCount();
-
-                List<object> output = new List<object>();
-
-                reader.Open();
-                //needs to operate on selected rows or not.
-
-                //ifselected rows, update the entire column, but put the original value in for non selected rows.
-                if (UseSelection)
-                {
-                    object[] tmp = reader.Column(_selectionColumnName);
-                    object[] original = reader.Column(_columnName);
-                    List<int> items = new List<int>();
-                    foreach (long uid in _selectedKeys)
-                    {
-                        items.Add(Array.IndexOf(tmp, uid));
-                    }
-                    for (int i = 0; i < count; i++)
-                    {
-                        if (items.Contains(i))
-                        {
-                            FieldCalculationParser.ParseTreeNode.RowOrCellNum = (int)i;//whatever.
-                            if (uniqueheaders.Count() > 0)
-                            {
-                                row = reader.Row((int)i, uniqueheaders);
-                                tree.Update(ref row);
-                            }
-                            output.Add(tree.Evaluate().GetResult);
-                        }
-                        else
-                        {
-                            output.Add(original[i]);
-                        }
-
-                    }
-                }
-                else
-                {
-                    for (Int64 i = 0; i < count; i++)
-                    {
-                        FieldCalculationParser.ParseTreeNode.RowOrCellNum = (int)i;//whatever.
-                        if (uniqueheaders.Count() > 0)
-                        {
-                            row = reader.Row((int)i, uniqueheaders);
-                            tree.Update(ref row);
-                        }
-                        output.Add(tree.Evaluate().GetResult);
-                    }
-                }
-
-                reader.Close();
-                if (tree.GetComputeErrors.Count > 1)
-                {
-                    //do not write to file.
-                    StringBuilder s = new StringBuilder();
-                    foreach (string o in tree.GetComputeErrors)
-                    {
-                        s.AppendLine(o);
-                    }
-                    ErrorWindow err = new ErrorWindow(s.ToString());
-                    err.Title = "Output";
-                    err.ShowDialog();
-                }
-                else
-                {
-                    Database.Writer.SqLiteWriter writer = new Database.Writer.SqLiteWriter(_filePath, _tableName);
-                    writer.UpdateColumn(_columnName, output.ToArray());
-                    Close();
-                }
-            }
+            List<PreviewRowItem> previewRowItems = getPreviewRowItems();
+            Database.Writer.SqLiteWriter writer = new Database.Writer.SqLiteWriter(_filePath, _tableName);
+            writer.UpdateColumn(_columnName, previewRowItems.Select(x => x.NewValue).ToArray());
+            Close();
         }
         private string[] getUniqueHeaders(List<string> usedHeaders)
         {
@@ -368,6 +294,78 @@ namespace CalculatorView.Controls
                 }
             }
             return uniques.ToArray();
+        }
+        private List<PreviewRowItem> getPreviewRowItems()
+        {
+            List<PreviewRowItem> previewRowItems = new List<PreviewRowItem>();
+            //this is where you would get the parse tree from the expressionwindow, and then execute the tree for each row.
+            FieldCalculationParser.ParseTreeNode tree = TestWindow.GetTree;
+            FieldCalculationParser.ParseTreeNode.Initialize();//clear all errors.
+
+            if (tree != null)
+            {
+                Database.Reader.SqLiteReader reader = new Database.Reader.SqLiteReader(_filePath, _tableName);
+                object[] row;
+                List<string> usedheaders = tree.GetHeaderNames();
+                string[] uniqueheaders = getUniqueHeaders(usedheaders);
+                tree.SetColNums(uniqueheaders.ToList());
+                Int64 count = reader.RowCount();
+                List<int> selectedRows = null;
+
+                List<object> output = new List<object>();
+
+                reader.Open();
+                object[] original = reader.Column(_columnName);
+                object[] primaryKeys = reader.Column(_selectionColumnName);
+                //needs to operate on selected rows or not.
+                //ifselected rows, update the entire column, but put the original value in for non selected rows.
+                if (UseSelection)
+                {
+                    selectedRows = new List<int>();
+                    object[] tmp = reader.Column(_selectionColumnName);
+                    foreach (long uid in _selectedKeys)
+                    {
+                        selectedRows.Add(Array.IndexOf(tmp, uid));
+                    }
+                }
+
+                for (int i = 0; i < count; i++)
+                {
+                    if (!UseSelection || selectedRows.Contains(i))
+                    {
+                        FieldCalculationParser.ParseTreeNode.RowOrCellNum = (int)i;//whatever.
+                        if (uniqueheaders.Count() > 0)
+                        {
+                            row = reader.Row((int)i, uniqueheaders);
+                            tree.Update(ref row);
+                        }
+                        output.Add(tree.Evaluate().GetResult);
+                    }
+                    else
+                    {
+                        output.Add(original[i]);
+                    }
+
+                    previewRowItems.Add(new PreviewRowItem(primaryKeys[i], original[i], output[i]));
+                }
+
+                reader.Close();
+            }
+
+            if (tree.GetComputeErrors.Count > 1)
+            {
+                //do not write to file.
+                StringBuilder s = new StringBuilder();
+                foreach (string o in tree.GetComputeErrors)
+                {
+                    s.AppendLine(o);
+                }
+                ErrorWindow err = new ErrorWindow(s.ToString());
+                err.Title = "Output";
+                err.ShowDialog();
+            }
+
+            return previewRowItems;
         }
 
         private void AvailableFields_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -409,6 +407,14 @@ namespace CalculatorView.Controls
         protected void NotifyPropertyChanged([System.Runtime.CompilerServices.CallerMemberName]string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void CmdPreview_Click(object sender, RoutedEventArgs e)
+        {
+            List<PreviewRowItem> previewRowItems = getPreviewRowItems();
+            PreviewChangesViewModel previewVM = new PreviewChangesViewModel(_columnName,_selectionColumnName, previewRowItems);
+            PreviewChanges previewWindow = new PreviewChanges(previewVM);
+            previewWindow.ShowDialog();
         }
     }
 }

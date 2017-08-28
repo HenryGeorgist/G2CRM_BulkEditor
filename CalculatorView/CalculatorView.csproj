@@ -57,9 +57,14 @@
     </Compile>
     <Compile Include="Controls\ExpressionTextBox.cs" />
     <Compile Include="Controls\FCTreeItem.cs" />
+    <Compile Include="Controls\PreviewChanges.xaml.cs">
+      <DependentUpon>PreviewChanges.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TextBoxFileBrowser.xaml.cs">
       <DependentUpon>TextBoxFileBrowser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PreviewChangesViewModel.cs" />
+    <Compile Include="PreviewRowItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +93,10 @@
     <Page Include="Controls\ErrorWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PreviewChanges.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TextBoxFileBrowser.xaml">
       <Generator>MSBuild:Compile</Generator>
