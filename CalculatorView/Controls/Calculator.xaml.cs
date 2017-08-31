@@ -15,6 +15,7 @@ namespace CalculatorView.Controls
     public partial class Calculator : Window, System.ComponentModel.INotifyPropertyChanged
     {
         private List<string> _ParseErrors;
+        private bool _DatabaseUpdated = false;
         private string _firstParts;
         private string _secondParts;
         private List<string> _headers;
@@ -30,7 +31,10 @@ namespace CalculatorView.Controls
         private object[] _FirstRow;
         private object[] _FirstSelectedRow;
         public event PropertyChangedEventHandler PropertyChanged;
-
+        public bool DatabaseUpdated
+        {
+            get { return _DatabaseUpdated; }
+        }
         public string ColumnName
         {
             get { return _columnName; }
@@ -255,6 +259,15 @@ namespace CalculatorView.Controls
             if (IsLoaded)
             {
                 TestWindow.IsCaseSensitive = true;
+                try
+                {
+                    TestWindow.Parse();
+                    Result.Content = TestWindow.Result;
+                }catch(Exception ex)
+                {
+                    Result.Content = "Exception";
+                }
+
             }
         }
         private void IsCaseSensitive_Unchecked(object sender, RoutedEventArgs e)
@@ -262,6 +275,15 @@ namespace CalculatorView.Controls
             if (IsLoaded)
             {
                 TestWindow.IsCaseSensitive = false;
+                try
+                {
+                    TestWindow.Parse();
+                    Result.Content = TestWindow.Result;
+                }
+                catch (Exception ex)
+                {
+                    Result.Content = "Exception";
+                }
             }
         }
         private void CmdErrorLog_Click(object sender, RoutedEventArgs e)
@@ -279,9 +301,15 @@ namespace CalculatorView.Controls
         private void CmdExecute_Click(object sender, RoutedEventArgs e)
         {
             List<PreviewRowItem> previewRowItems = getPreviewRowItems();
-            Database.Writer.SqLiteWriter writer = new Database.Writer.SqLiteWriter(_filePath, _tableName);
-            writer.UpdateColumn(_columnName, previewRowItems.Select(x => x.NewValue).ToArray());
-            Close();
+            if(System.Windows.MessageBox.Show("You have requested a permanent change to your database. This cannot be undone. Do you wish to proceed?","Advanced Editor (" + _tableName + ")",MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Database.Writer.SqLiteWriter writer = new Database.Writer.SqLiteWriter(_filePath, _tableName);
+                writer.UpdateColumn(_columnName, previewRowItems.Select(x => x.NewValue).ToArray());
+                _DatabaseUpdated = true;
+                Close();
+            }
+
+
         }
         private string[] getUniqueHeaders(List<string> usedHeaders)
         {
@@ -301,7 +329,7 @@ namespace CalculatorView.Controls
             //this is where you would get the parse tree from the expressionwindow, and then execute the tree for each row.
             FieldCalculationParser.ParseTreeNode tree = TestWindow.GetTree;
             FieldCalculationParser.ParseTreeNode.Initialize();//clear all errors.
-
+            
             if (tree != null)
             {
                 Database.Reader.SqLiteReader reader = new Database.Reader.SqLiteReader(_filePath, _tableName);

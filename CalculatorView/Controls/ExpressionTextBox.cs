@@ -8,7 +8,7 @@ namespace CalculatorView.Controls
 {
     public delegate void ErrorsFoundHandler(bool TreeIsNull);
     public delegate void ParseSuccessHandler();
-    public class ExpressionTextBox: System.Windows.Controls.TextBox
+    public class ExpressionTextBox : System.Windows.Controls.TextBox
     {
         #region Notes
         #endregion
@@ -37,11 +37,11 @@ namespace CalculatorView.Controls
             get { return _IsCaseSensitive; }
             set { _IsCaseSensitive = value; }
         }
-        public FieldCalculationParser.ParseTreeNode GetTree{get { return _tree; }}
+        public FieldCalculationParser.ParseTreeNode GetTree { get { return _tree; } }
         public string Result { get { return _Result; } }
         public List<string> SetHeaders { set { _headers = value; } }
         public List<Type> SetHeaderTypes { set { _HeaderTypes = value; } }
-        public System.Windows.Controls.TextBlock TextBlock { get { return _TextBlock; }}
+        public System.Windows.Controls.TextBlock TextBlock { get { return _TextBlock; } }
         public object[] SetDataForFirstRow { set { _FirstRowOfData = value; } }
         public FieldCalculationParser.TypeEnum SetOutputType
         {
@@ -106,7 +106,7 @@ namespace CalculatorView.Controls
             _s.Restart();
             if (!_BW.IsBusy) { _BW.RunWorkerAsync(); }
         }
-        private  void CancelBackgroundWorker(object sender, System.Windows.Input.MouseEventArgs e)
+        private void CancelBackgroundWorker(object sender, System.Windows.Input.MouseEventArgs e)
         {
             _s.Stop();
         }
@@ -117,7 +117,7 @@ namespace CalculatorView.Controls
 
             }
         }
-        private void SetRichText(int pos,FieldCalculationParser.TokenEnum token, string text, string helpdoc)
+        private void SetRichText(int pos, FieldCalculationParser.TokenEnum token, string text, string helpdoc)
         {
             _TextBlock.Visibility = System.Windows.Visibility.Hidden;
             _TextBlock.MaxWidth = base.ActualWidth - ((_TextBlock.Margin.Left - base.Margin.Left) + (_TextBlock.Margin.Right - base.Margin.Right));
@@ -125,28 +125,40 @@ namespace CalculatorView.Controls
             {
                 if (token == FieldCalculationParser.TokenEnum.LPAREN)
                 {
-                    _ParenColors.Push(_colorList[_colorList.Count % _colorList.Count]);
+                    _ParenColors.Push(_colorList[_colorList.Count % _ParenColors.Count]);//to allow infinite colors in the added sequence...
                     _TextBlock.Inlines.Add(text);
                     _TextBlock.Inlines.Last().Foreground = _ParenColors.Peek();
-                }else if(token == FieldCalculationParser.TokenEnum.RPAREN)
+                }
+                else if (token == FieldCalculationParser.TokenEnum.RPAREN)
                 {
                     if (_ParenColors.Count > 0)
                     {
                         _TextBlock.Inlines.Add(text);
                         _TextBlock.Inlines.Last().Foreground = _ParenColors.Pop();
-                    }else
+                    }
+                    else
                     {
                         _TextBlock.Inlines.Add(text);
                     }
-                }else
+                }
+                else
                 {
                     _TextBlock.Inlines.Add(text);
                 }
-            }else
+            }
+            else
             {
                 System.Windows.Documents.Bold r = new System.Windows.Documents.Bold(new System.Windows.Documents.Run(text));
                 System.Windows.Documents.Hyperlink link = new System.Windows.Documents.Hyperlink(r);
-                link.Tag = text;
+                if (token == FieldCalculationParser.TokenEnum.ANDPERSTAND)
+                {
+                    link.Tag = "Concatenate";
+                }
+                else
+                {
+                    link.Tag = text;
+                }
+
                 link.NavigateUri = new System.Uri(helpdoc, System.UriKind.Relative);
                 link.IsEnabled = true;
                 link.Click += link_RequestNavigate;
@@ -159,7 +171,7 @@ namespace CalculatorView.Controls
             System.Windows.Documents.Hyperlink link = (System.Windows.Documents.Hyperlink)sender;
             string[] tmp = link.NavigateUri.ToString().Split(new Char[] { '.' });
             string filestring = tmp[1];
-            for(int i = 2; i < tmp.Count(); i++)
+            for (int i = 2; i < tmp.Count(); i++)
             {
                 filestring = filestring + "." + tmp[i];
             }
@@ -177,7 +189,7 @@ namespace CalculatorView.Controls
             }
             _ParenColors = new Stack<System.Windows.Media.SolidColorBrush>();
             _TextBlock.Inlines.Clear();
-            if(_Numlines!=base.LineCount){ShiftDownward();}
+            if (_Numlines != base.LineCount) { ShiftDownward(); }
             _s.Restart();
             if (!_BW.IsBusy) { _BW.RunWorkerAsync(); }
             byte[] strbytes = new System.Text.UTF8Encoding().GetBytes(base.Text);
@@ -195,19 +207,23 @@ namespace CalculatorView.Controls
                 {
                     _Result = "";
                     ErrorsFound(true);
-                } else
+                }
+                else
                 {
                     if (_tree.GetParseErrors.Count() > 0)
                     {
-                        if (_tree.ContainsError()) {
+                        if (_tree.ContainsError())
+                        {
                             _Result = "Tree Contains Parse Errors";
                             ErrorsFound(false);
-                        } else
+                        }
+                        else
                         {
                             _Result = "Invalid Syntax, Check Error Log";
                             ErrorsFound(false);
                         }
-                    } else
+                    }
+                    else
                     {
                         if (_tree.containsVariable())
                         {
@@ -223,7 +239,8 @@ namespace CalculatorView.Controls
                         ParseSuccess();
                     }
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 _Result = "Exception";
                 ErrorsFound(true);
@@ -239,7 +256,7 @@ namespace CalculatorView.Controls
         {
             List<string> input = tree.GetHeaderNames();
             List<string> output = new List<string>();
-            foreach(string s in input)
+            foreach (string s in input)
             {
                 if (!output.Contains(s))
                 {
@@ -252,7 +269,7 @@ namespace CalculatorView.Controls
         {
             List<object> data = new List<object>();
             if (_FirstRowOfData == null) { return data.ToArray(); }
-            foreach(string s in uniqueheaders)
+            foreach (string s in uniqueheaders)
             {
                 data.Add(_FirstRowOfData[_headers.IndexOf(s)]);
             }

@@ -97,11 +97,15 @@ Public Class Scanner
                     RaiseEvent TokenFound(pos, TokenEnum.StringLIT, "'", "")
                     Dim id = BuildString("'"c)
                     Return New Token(TokenEnum.StringLIT, id, linenumber, idpos)
+                    RaiseEvent TokenFound(pos, TokenEnum.StringLIT, id, "")
+                    RaiseEvent TokenFound(pos, TokenEnum.StringLIT, "'", "")
                 Case Chr(34)
                     c = GetCharacter(sr)
                     Dim idpos = pos
                     RaiseEvent TokenFound(pos, TokenEnum.StringLIT, Chr(34), "")
                     Dim id = BuildString(Chr(34))
+                    RaiseEvent TokenFound(pos, TokenEnum.StringLIT, id, "")
+                    RaiseEvent TokenFound(pos, TokenEnum.StringLIT, Chr(34), "")
                     Return New Token(TokenEnum.StringLIT, id, linenumber, idpos)
                 Case Chr(32) 'space
                     c = GetCharacter(sr)
@@ -132,59 +136,73 @@ Public Class Scanner
             Case "="c
                 c = GetCharacter(sr)
                 If Not c.Equals(" "c) Then putback = True
+                RaiseEvent TokenFound(pos, TokenEnum.EQ, " = ", "FieldCalculationParser.Booleans.xml")
                 Return New Token(TokenEnum.EQ, "=", linenumber, pos)
             Case "&"c
                 c = GetCharacter(sr)
                 If Not c.Equals(" "c) Then putback = True
+                RaiseEvent TokenFound(pos, TokenEnum.ANDPERSTAND, " & ", "FieldCalculationParser.Strings.xml")
                 Return New Token(TokenEnum.ANDPERSTAND, "&", linenumber, pos)
             Case "+"c
                 c = GetCharacter(sr)
                 If Not c.Equals(" "c) Then putback = True
+                RaiseEvent TokenFound(pos, TokenEnum.PLUS, "+", "FieldCalculationParser.Numerics.xml")
                 Return New Token(TokenEnum.PLUS, "+", linenumber, pos)
             Case "-"c
                 c = GetCharacter(sr)
                 If Not c.Equals(" "c) Then putback = True
+                RaiseEvent TokenFound(pos, TokenEnum.MINUS, "-", "FieldCalculationParser.Numerics.xml")
                 Return New Token(TokenEnum.MINUS, "-", linenumber, pos)
             Case "/"c
                 c = GetCharacter(sr)
                 If Not c.Equals(" "c) Then putback = True
+                RaiseEvent TokenFound(pos, TokenEnum.DIVIDE, "/", "FieldCalculationParser.Numerics.xml")
                 Return New Token(TokenEnum.DIVIDE, "/", linenumber, pos)
             Case "\"c
                 c = GetCharacter(sr)
                 If Not c.Equals(" "c) Then putback = True
+                RaiseEvent TokenFound(pos, TokenEnum.DIVIDE, "\", "FieldCalculationParser.Numerics.xml")
                 Return New Token(TokenEnum.DIVIDE, "\", linenumber, pos)
             Case "*"c
                 c = GetCharacter(sr)
                 If Not c.Equals(" "c) Then putback = True
+                RaiseEvent TokenFound(pos, TokenEnum.TIMES, "*", "FieldCalculationParser.Numerics.xml")
                 Return New Token(TokenEnum.TIMES, "*", linenumber, pos)
             Case "^"c
                 c = GetCharacter(sr)
                 If Not c.Equals(" "c) Then putback = True
+                RaiseEvent TokenFound(pos, TokenEnum.EXPONENT, "^", "FieldCalculationParser.Numerics.xml")
                 Return New Token(TokenEnum.EXPONENT, "*", linenumber, pos)
             Case ","c
                 c = GetCharacter(sr)
                 If Not c.Equals(" "c) Then putback = True
+                RaiseEvent TokenFound(pos, TokenEnum.COMMA, ",", "")
                 Return New Token(TokenEnum.COMMA, ",", linenumber, pos)
             Case ">"c
                 c = GetCharacter(sr)
                 If c.Equals("="c) Then
                     If Not c.Equals(" "c) Then putback = True
+                    RaiseEvent TokenFound(pos, TokenEnum.GE, ">=", "FieldCalculationParser.Booleans.xml")
                     Return New Token(TokenEnum.GE, ">=", linenumber, pos)
                 End If
                 If Not c.Equals(" "c) Then putback = True
+                RaiseEvent TokenFound(pos, TokenEnum.GT, ">", "FieldCalculationParser.Booleans.xml")
                 Return New Token(TokenEnum.GT, ">", linenumber, pos)
             Case "<"c
                 c = GetCharacter(sr)
                 If c.Equals("="c) Then
                     If Not c.Equals(" "c) Then putback = True
+                    RaiseEvent TokenFound(pos, TokenEnum.LE, "<=", "FieldCalculationParser.Booleans.xml")
                     Return New Token(TokenEnum.LE, "<=", linenumber, pos)
                 End If
                 If Not c.Equals(" "c) Then putback = True
+                RaiseEvent TokenFound(pos, TokenEnum.LT, "<", "FieldCalculationParser.Booleans.xml")
                 Return New Token(TokenEnum.LT, "<", linenumber, pos)
             Case "!"c
                 c = GetCharacter(sr)
                 If c.Equals("="c) Then
                     If Not c.Equals(" "c) Then putback = True
+                    RaiseEvent TokenFound(pos, TokenEnum.NEQ, "!=", "FieldCalculationParser.Booleans.xml")
                     Return New Token(TokenEnum.NEQ, "!=", linenumber, pos)
                 End If
                 If Not c.Equals(" "c) Then putback = True
@@ -201,7 +219,7 @@ Public Class Scanner
         Do
             s &= c
             c = GetCharacter(sr)
-        Loop While Char.IsLetterOrDigit(c) Or Char.IsWhiteSpace(c) Or c = "_"c
+        Loop While Char.IsLetterOrDigit(c) Or c = "_"c Or c = "-"c ''Char.IsWhiteSpace(c) Or
         putback = True
         Return s
     End Function
@@ -210,7 +228,7 @@ Public Class Scanner
         Do
             s &= c
             c = GetCharacter(sr)
-        Loop While Char.IsLetterOrDigit(c) OrElse Char.IsWhiteSpace(c) OrElse c = "_"c And Not c.Equals(terminator) And Not c.Equals(Chr(0))
+        Loop While Char.IsLetterOrDigit(c) OrElse Char.IsWhiteSpace(c) OrElse c = "_"c OrElse c = "-"c And Not c.Equals(terminator) And Not c.Equals(Chr(0))
         Return s
     End Function
     Private Function BuildNum() As NumberResult
